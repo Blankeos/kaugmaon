@@ -7,6 +7,7 @@ specifiers:
   '@types/react-dom': 18.0.10
   eslint: 8.32.0
   eslint-config-next: 13.1.5
+  husky: ^8.0.3
   next: 13.1.5
   react: 18.2.0
   react-dom: 18.2.0
@@ -23,6 +24,9 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   typescript: 4.9.4
+
+devDependencies:
+  husky: 8.0.3
 
 packages:
 
@@ -1231,6 +1235,12 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: false
+
+  /husky/8.0.3:
+    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /ignore/5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
