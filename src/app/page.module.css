@@ -97,7 +97,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -113,10 +113,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
   padding: 25px 10px;
-  margin-left: 16px;
+  /* margin-left: 16px; */
   transform: translateZ(0);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -125,7 +125,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
@@ -241,11 +241,11 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(
+    /* background: linear-gradient(
       to bottom,
       transparent 0%,
       rgb(var(--background-end-rgb)) 40%
-    );
+    ); */
     z-index: 1;
   }
 }
@@ -257,7 +257,7 @@
 
   .logo,
   .thirteen img {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+    filter: drop-shadow(0 0 0.3rem #ffffff70);
   }
 }
 

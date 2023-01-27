@@ -1,13 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Azonix";
+  src: url("../fonts/Azonix.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Azonix";
+}
+
+body {
+  font-family: "Space Mono";
+}
+
+.fluid-container {
+  @apply max-w-6xl w-full mx-auto px-7;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #181818;
+  background: white;
+  /* color: white;
+  background: #ddff0074; */
+}
+
+::selection {
+  color: #181818;
+  background: white;
+  /* color: white;
+  background: #ddff0074; */
+}
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: "Space Mono", ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: rgb(0, 0, 0);
+  --background-start-rgb: rgb(214, 219, 220);
+  --background-end-rgb: rgb(255, 255, 255);
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -104,4 +144,14 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.glowy {
+  width: 240px;
+  height: 240px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* position: relative; */
+  /* padding: 4rem 0; */
 }
