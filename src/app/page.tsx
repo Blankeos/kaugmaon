@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import guestSpeakers from "@/data/guestSpeakers";
 
 // import { Inter } from "@next/font/google";
 // const inter = Inter({ subsets: ["latin"] });
@@ -99,27 +100,28 @@ export default function Home() {
         </div>
       </div>
       {/* List of Speakers */}
-      <div className="fluid-container py-10">
+      <div className="fluid-container py-10" id="guest-speakers">
         <h2 className="text-xl font-bold mb-8 font-azonix text-center tracking-widest">
           Guest Speakers
         </h2>
-        <div className="flex flex-col">
-          <div className="flex border border-primary rounded-xl p-5 gap-5">
-            {/* Image */}
-            <div className="bg-primary h-52 w-52 shrink-0"></div>
-            {/* Body */}
-            <div>
-              <h3 className="text-2xl">Mr. Carlo Antonio Taleon</h3>
-              <p className="text-gray-400 mb-5">@taleoncarlo</p>
-              <p className="text-gray-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam soluta deserunt in esse officia, perferendis
-                molestias consequuntur, minus dolore itaque tenetur blanditiis
-                omnis, vitae saepe cum earum ad quo eius.
-              </p>
+        {guestSpeakers.map((speaker, i) => {
+          return (
+            <div key={i} className="flex flex-col my-10">
+              <div className="flex border border-primary space-x-5 rounded-xl p-5 ">
+                {/* Image */}
+                <div className="shrink-0">
+                  <Image src={speaker.img} width={200} height={200} alt="" />
+                </div>
+                {/* Body */}
+                <div>
+                  <h3 className="text-2xl">{speaker.name}</h3>
+                  <p className="text-gray-400 mb-5">{speaker.username}</p>
+                  <p className="text-gray-300">{speaker.description}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
       {/* Call out */}
       <div className="py-32 bg-primary bg-opacity-10 text-gray-300">

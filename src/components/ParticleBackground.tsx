@@ -16,16 +16,13 @@ const ParticleBackground: React.FC<Props> = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      console.log(container);
-    },
-    []
-  );
+  const particlesLoaded = useCallback(async (container?: Container) => {
+    await console.log(container);
+  }, []);
 
   return (
     <div>
-      <div className="fixed backdrop-blur-sm z-5 h-screen w-screen" />
+      <div className="fixed backdrop-blur-[5px] z-5 h-screen w-screen" />
       <Particles
         className="absolute min-h-screen -z-10 w-full"
         init={particlesInit}

@@ -1,14 +1,19 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import styles from "./page.module.css";
 import ClientToaster from "@/components/ClientToaster";
 import ParticleBackground from "@/components/ParticleBackground";
+import ScrollLink from "@/components/ClientScrollLink";
+import { usePathname } from "next/navigation";
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <html lang="en">
       {/*
@@ -35,9 +40,20 @@ export default function RootLayout({
                   </Link>
                 </li>
                 <li>
-                  <Link href="/speakers" className="hover:text-primary">
-                    Guest Speakers
-                  </Link>
+                  {pathname && pathname === "/" ? (
+                    <ScrollLink to="guest-speakers" offset={-50}>
+                      <span className="hover:text-primary cursor-pointer">
+                        Guest Speakers
+                      </span>
+                    </ScrollLink>
+                  ) : (
+                    <Link
+                      className="hover:text-primary cursor-pointer"
+                      href="/#guest-speakers"
+                    >
+                      Guest Speakers
+                    </Link>
+                  )}
                 </li>
                 <li>
                   <Link href="/guidelines" className="hover:text-primary">
@@ -48,7 +64,7 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col ">
           {/* <nav className={styles.description}>
             <p>
               Get started by editing&nbsp;

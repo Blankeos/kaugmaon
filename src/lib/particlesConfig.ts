@@ -41,7 +41,7 @@ const particlesConfig: object = {
     },
   },
   background: {
-    color: "#181818",
+    color: "#000",
   },
 };
 
