@@ -1,12 +1,35 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
 
 import Tilt from "react-parallax-tilt";
 import NextImage from "next/image";
 
-const Ticket = () => {
+interface ITicketProps {
+  name?: string;
+  imgUrl?: string;
+  email?: string;
+}
+
+const GUEST_ORGANIZATIONS = [
+  "gmail",
+  "yahoo",
+  "outlook",
+  "mail",
+  "protonmail",
+  "icloud",
+];
+
+function getOrganization(email: string): string {
+  let organization = email?.match(/(?<=@)(.*?)(?=\.)/g);
+
+  if (organization === null || GUEST_ORGANIZATIONS.includes(organization[0]))
+    return "guest";
+
+  return organization[0];
+}
+
+const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const organization = getOrganization(email || "gmail");
 
   return (
     <>
@@ -47,16 +70,20 @@ const Ticket = () => {
                   <div
                     className="w-20 h-20 rounded-full bg-green-200"
                     style={{
-                      background: `url(https://carlo.vercel.app/imgs/carlo_about.jpg)`,
+                      background: `url(${
+                        imgUrl ||
+                        "https://carlo.vercel.app/imgs/carlo_about.jpg"
+                      })`,
                       backgroundSize: "cover",
+                      backgroundPosition: "center",
                     }}
                   ></div>
                   {/* Name and Email */}
                   <div className="">
-                    <h3 className="text-2xl font-bold tracking-tight">
-                      Carlo Taleon
+                    <h3 className="text-2xl font-bold tracking-tight capitalize">
+                      {name?.toLowerCase()}
                     </h3>
-                    <p className="">WVSU</p>
+                    <p className="uppercase">{organization}</p>
                   </div>
                 </div>
               </div>

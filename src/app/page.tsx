@@ -1,15 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
 
-// import { Inter } from "@next/font/google";
-// const inter = Inter({ subsets: ["latin"] });
+import { signIn, signOut, useSession } from "next-auth/react";
 
-// Icons
+// START: Icons
 import {
   MdArrowForward as ForwardIcon,
   MdOutlineEmail as EmailIcon,
   MdOutlineFacebook as FacebookIcon,
+  MdReceipt as TicketIcon,
 } from "react-icons/md";
+
+import { FcGoogle as GoogleIcon } from "react-icons/fc";
+import { AiOutlineLoading3Quarters as LoadingIcon } from "react-icons/ai";
+
+// END: Icons
 
 import { TypeAnimation } from "react-type-animation";
 import ClientTypeAnimation from "@/components/ClientTypeAnimation";
@@ -19,11 +26,13 @@ import ScrollLink from "@/components/ClientScrollLink";
 import Link from "next/link";
 
 export default function Home() {
+  const { data: session, status } = useSession();
+
   return (
     <>
       {/* Hero */}
       <div className="fluid-container flex-1 flex flex-col">
-        <div className="flex flex-col items-center gap-y-4 justify-center flex-1 flex-shrink-0 min-h-screen relative">
+        <div className="flex flex-col items-center justify-center flex-1 flex-shrink-0 min-h-screen relative">
           <div className="flex flex-col items-center gap-y-5 text-center">
             <div className="relative">
               <div className={styles.thirteen}>
@@ -38,19 +47,65 @@ export default function Home() {
             </div>
             <h1 className="tracking-widest text-4xl md:text-5xl">KAUGMAON</h1>
           </div>
-          <p className="text-lg text-center">
+          <p className="text-xl text-center text-gray-300">
             the augmented real<span className="text-primary">IT</span>y
           </p>
-          <p className="text-primary text-sm text-center">February 17, 2023</p>
-          <div className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-96 mt-20">
+          <p className="text-primary text-sm text-center mt-10">
+            February 17, 2023{" "}
+            <span className="text-cyan-400">@ WVSU Cultural Center</span>
+          </p>
+          {/* -- Email Ver. -- */}
+          {/* <div className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-96 mt-20">
             <EmailIcon className="w-5 h-5 grid place-items-center" />
             <input
               className="font-thin w-full transparent bg-transparent focus:outline-none"
               type="email"
               placeholder="Enter email for a cool ticket"
             />
+            <button
+              className="font-thin w-full transparent bg-transparent focus:outline-none"
+              onClick={() => signOut()}
+              ></button>
             <ForwardIcon className="w-5 h-5 grid place-items-center" />
+          </div> */}
+          {/* -- Google Ver. -- */}
+
+          <div className="flex flex-col items-center gap-y-2 mt-16">
+            {status !== "loading" ? (
+              session ? (
+                <div className="text-center">
+                  <Link
+                    href="/ticket"
+                    className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition"
+                  >
+                    <TicketIcon className="w-5 h-5 grid place-items-center" />
+                    <span>View my Ticket</span>
+                  </Link>
+                  <button
+                    className="text-xs text-white/70 hover:text-red-400"
+                    onClick={() => signOut()}
+                  >
+                    Sign out
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  <button
+                    onClick={() => signIn("google")}
+                    className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition"
+                  >
+                    <GoogleIcon className="w-5 h-5 grid place-items-center" />
+                    <span>Login with Google</span>
+                  </button>
+                </div>
+              )
+            ) : (
+              <div className="text-white">
+                <LoadingIcon className="w-5 h-5 animate-spin" />
+              </div>
+            )}
           </div>
+
           <ScrollLink
             to="event-landing-start"
             className="bottom-10 absolute animate-bounce flex gap-x-4 items-center text-gray-500 text-sm cursor-pointer"
@@ -137,6 +192,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <ClientTypeAnimation />
+      {session?.user ? "No user" : "No user"}
 
       {/* Bottom */}
       {/* <div className={styles.grid}>

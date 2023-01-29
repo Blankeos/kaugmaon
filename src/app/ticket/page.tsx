@@ -4,17 +4,20 @@ import { toPng } from "html-to-image";
 import download from "downloadjs";
 import { toast } from "react-hot-toast";
 
-// Icons
+// START: Icons
 import {
   MdOutlineImage as ImageIcon,
   MdOutlineShare as ShareIcon,
 } from "react-icons/md";
 import Link from "next/link";
 import Ticket from "@/components/Ticket";
-// import { useSession } from "next-auth/react";
+// END: Icons
+
+import { useSession } from "next-auth/react";
 
 const TicketPage = () => {
-  // const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const isLoading = status === "loading";
 
   async function downloadImage() {
     const node = document.getElementById("ticket-node");
@@ -43,10 +46,15 @@ const TicketPage = () => {
     <>
       <div className="SPACER h-20" />
       <div className="flex-1 grid place-items-center">
-        <Ticket />
+        {
+          <Ticket
+            imgUrl={session?.user?.image as string | undefined}
+            name={session?.user?.name as string | undefined}
+            email={session?.user?.email as string | undefined}
+          />
+        }
         <div className="flex gap-x-5">
           <button
-            type="button"
             onClick={handleDownloadClick}
             className="border px-6 py-3 rounded-xl hover:bg-white hover:text-dark flex gap-x-2 items-center"
           >
