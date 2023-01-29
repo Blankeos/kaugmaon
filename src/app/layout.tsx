@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import styles from "./page.module.css";
 import ClientToaster from "@/components/ClientToaster";
+import ParticleBackground from "@/components/ParticleBackground";
 export default function RootLayout({
   children,
 }: {
@@ -47,7 +48,7 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        <div className="min-h-screen flex flex-col bg-dark">
+        <div className="min-h-screen flex flex-col">
           {/* <nav className={styles.description}>
             <p>
               Get started by editing&nbsp;
@@ -71,8 +72,10 @@ export default function RootLayout({
               </a>
             </div>
           </nav> */}
-          <main className="flex flex-grow flex-col">{children}</main>
-          <footer className="fluid-container">Footer</footer>
+
+          <ParticleBackground />
+          <main className="flex flex-grow flex-col z-10">{children}</main>
+          <footer className="fluid-container z-10">Footer</footer>
         </div>
         <ClientToaster />
       </body>

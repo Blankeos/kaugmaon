@@ -7,7 +7,7 @@ type ProgramFlowRow = {
 const programFlow: ProgramFlowRow[] = [
   {
     header: "Opening Hymn",
-    subheader: ["National Anthem", "Prayer", "National Anthem"],
+    subheader: ["a. National Anthem", "b. Prayer", "c. National Anthem"],
     time: "9:00",
   },
   {
@@ -23,8 +23,8 @@ const programFlow: ProgramFlowRow[] = [
   {
     header: "Presentation of Groups",
     subheader: [
-      "Video Presentation of Each group",
-      "Presentation of Activities",
+      "a. Video Presentation of Each group",
+      "b. Presentation of Activities",
     ],
     time: "9:25",
   },

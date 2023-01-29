@@ -8,6 +8,7 @@ import Tilt from "react-parallax-tilt";
 
 import download from "downloadjs";
 import { toast } from "react-hot-toast";
+import ScrollUp from "@/components/ScrollUp";
 
 // Icons
 import {
@@ -48,6 +49,7 @@ const TicketPage = () => {
   }, [isHovered]);
   return (
     <>
+      <ScrollUp />
       <div className="SPACER h-20" />
       <div className="flex-1 grid place-items-center">
         {/* The Ticket */}

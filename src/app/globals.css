@@ -155,3 +155,8 @@ a {
   /* position: relative; */
   /* padding: 4rem 0; */
 }
+
+.hanging-indent {
+  padding-left: 22px;
+  text-indent: -22px;
+}
