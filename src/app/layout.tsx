@@ -1,9 +1,13 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+
+// CSS
 import "./globals.css";
-import styles from "./page.module.css";
+import "./index.css";
+
 import ClientToaster from "@/components/ClientToaster";
+
 import ParticleBackground from "@/components/ParticleBackground";
 import ScrollLink from "@/components/ClientScrollLink";
 import { usePathname } from "next/navigation";
@@ -22,6 +26,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
+      <AuthContext>
         <nav className="fixed top-0 w-full z-20 backdrop-blur-sm">
           <div className="fluid-container">
             {/* Nav Content Start */}
@@ -62,38 +67,13 @@ export default function RootLayout({
                 </li>
               </ul>
             </div>
+          </nav>
+          <div className="min-h-screen flex flex-col bg-dark">
+            <main className="flex flex-grow flex-col">{children}</main>
+            <footer className="fluid-container">Footer</footer>
           </div>
-        </nav>
-        <div className="min-h-screen flex flex-col ">
-          {/* <nav className={styles.description}>
-            <p>
-              Get started by editing&nbsp;
-              <code className={styles.code}>app/page.tsx</code>
-            </p>
-            <div>
-              <a
-                href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                By{" "}
-                <Image
-                  src="/vercel.svg"
-                  alt="Vercel Logo"
-                  className={styles.vercelLogo}
-                  width={100}
-                  height={24}
-                  priority
-                />
-              </a>
-            </div>
-          </nav> */}
-
-          <ParticleBackground />
-          <main className="flex flex-grow flex-col z-10">{children}</main>
-          <footer className="fluid-container z-10">Footer</footer>
-        </div>
-        <ClientToaster />
+          <ClientToaster />
+        </AuthContext>
       </body>
     </html>
   );
