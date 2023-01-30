@@ -25,10 +25,22 @@ import ClientTypeAnimation from "@/components/ClientTypeAnimation";
 import ScrollLink from "@/components/ClientScrollLink";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
   const { data: session, status } = useSession();
+  const [loading, setLoading] = useState<boolean>(false);
 
+  async function handleSignIn() {
+    setLoading(true);
+    await signIn("google", {
+      callbackUrl: "/ticket",
+    });
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 12000);
+  }
   return (
     <>
       {/* Hero */}
@@ -55,22 +67,6 @@ export default function Home() {
             February 17, 2023{" "}
             <span className="text-cyan-400">@ WVSU Cultural Center</span>
           </p>
-          {/* -- Email Ver. -- */}
-          {/* <div className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-96 mt-20">
-            <EmailIcon className="w-5 h-5 grid place-items-center" />
-            <input
-              className="font-thin w-full transparent bg-transparent focus:outline-none"
-              type="email"
-              placeholder="Enter email for a cool ticket"
-            />
-            <button
-              className="font-thin w-full transparent bg-transparent focus:outline-none"
-              onClick={() => signOut()}
-              ></button>
-            <ForwardIcon className="w-5 h-5 grid place-items-center" />
-          </div> */}
-          {/* -- Google Ver. -- */}
-
           <div className="flex flex-col items-center gap-y-2 mt-16">
             {status !== "loading" ? (
               session ? (
@@ -92,11 +88,21 @@ export default function Home() {
               ) : (
                 <div>
                   <button
-                    onClick={() => signIn("google")}
-                    className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition"
+                    onClick={() => {
+                      handleSignIn();
+                    }}
+                    className="group border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition h-12"
                   >
-                    <GoogleIcon className="w-5 h-5 grid place-items-center" />
-                    <span>Login with Google</span>
+                    {loading ? (
+                      <div className="group-hover:text-dark text-white">
+                        <LoadingIcon className="w-5 h-5 animate-spin" />
+                      </div>
+                    ) : (
+                      <>
+                        <GoogleIcon className="w-5 h-5 grid place-items-center" />
+                        <span>Login with Google</span>
+                      </>
+                    )}
                   </button>
                 </div>
               )

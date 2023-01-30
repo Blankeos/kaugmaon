@@ -9,6 +9,10 @@ interface ITicketProps {
   email?: string;
 }
 
+import { RandomReveal } from "react-random-reveal";
+import useHasMounted from "@/hooks/useHasMounted";
+import capitalize from "@/lib/capitalize";
+
 const GUEST_ORGANIZATIONS = [
   "gmail",
   "yahoo",
@@ -30,6 +34,7 @@ function getOrganization(email: string): string {
 const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const organization = getOrganization(email || "gmail");
+  const hasMounted = useHasMounted();
 
   return (
     <>
@@ -49,7 +54,7 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
         >
           <div className="relative w-[40rem] h-[25rem]">
             <NextImage
-              src="/ticket.webp"
+              src="/ticket.png"
               fill
               alt="ticket"
               className="object-contain absolute"
@@ -80,9 +85,19 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
                   ></div>
                   {/* Name and Email */}
                   <div className="">
-                    <h3 className="text-2xl font-bold tracking-tight capitalize">
-                      {name?.toLowerCase()}
-                    </h3>
+                    <div className="h-8">
+                      {name ? (
+                        <h3 className="text-2xl font-bold tracking-tight">
+                          <RandomReveal
+                            isPlaying
+                            duration={1}
+                            characters={capitalize(name)}
+                          />
+                        </h3>
+                      ) : (
+                        <h3 className="text-2xl font-bold tracking-tight bg-white h-6 w-72"></h3>
+                      )}
+                    </div>
                     <p className="uppercase">{organization}</p>
                   </div>
                 </div>
