@@ -3,6 +3,7 @@
 import { toPng } from "html-to-image";
 import download from "downloadjs";
 import { toast } from "react-hot-toast";
+import ScrollUp from "@/components/ScrollUp";
 
 // START: Icons
 import {
@@ -44,6 +45,7 @@ const TicketPage = () => {
 
   return (
     <>
+      <ScrollUp />
       <div className="SPACER h-20" />
       <div className="flex-1 grid place-items-center">
         {
