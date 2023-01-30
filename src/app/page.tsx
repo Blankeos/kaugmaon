@@ -26,6 +26,7 @@ import ScrollLink from "@/components/ClientScrollLink";
 
 import Link from "next/link";
 import { useState } from "react";
+import Loader from "@/components/Loader";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -91,11 +92,11 @@ export default function Home() {
                     onClick={() => {
                       handleSignIn();
                     }}
-                    className="group border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition h-12"
+                    className="group lds-ellipsis-button border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition h-12"
                   >
                     {loading ? (
                       <div className="group-hover:text-dark text-white">
-                        <LoadingIcon className="w-5 h-5 animate-spin" />
+                        <Loader />
                       </div>
                     ) : (
                       <>
