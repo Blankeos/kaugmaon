@@ -9,7 +9,7 @@ import "./index.css";
 import ClientToaster from "@/components/ClientToaster";
 
 import AuthContext from "@/context/AuthContext";
-// import ParticleBackground from "@/components/ParticleBackground";
+import ParticleBackground from "@/components/ParticleBackground";
 import ScrollLink from "@/components/ClientScrollLink";
 import { usePathname } from "next/navigation";
 export default function RootLayout({
@@ -70,8 +70,8 @@ export default function RootLayout({
               </div>
             </div>
           </nav>
-          <div className="min-h-screen flex flex-col bg-dark">
-            {/* <ParticleBackground /> */}
+          <div className="min-h-screen flex flex-col">
+            <ParticleBackground />
             <main className="flex flex-grow flex-col">{children}</main>
             <footer className="fluid-container">Footer</footer>
           </div>

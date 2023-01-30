@@ -28,7 +28,10 @@
     "react-parallax-tilt": "^1.7.93",
     "react-random-reveal": "^2.0.0",
     "react-scroll": "^1.8.9",
+    "react-tsparticles": "^2.8.0",
     "react-type-animation": "^2.1.2",
+    "tsparticles": "^2.8.0",
+    "tsparticles-engine": "^2.8.0",
     "typescript": "4.9.4"
   },
   "devDependencies": {
