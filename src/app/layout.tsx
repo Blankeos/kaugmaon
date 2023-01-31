@@ -12,13 +12,13 @@ import AuthContext from "@/context/AuthContext";
 import ParticleBackground from "@/components/ParticleBackground";
 import ScrollLink from "@/components/ClientScrollLink";
 import { usePathname } from "next/navigation";
+import ClientRoute from "@/components/ClientRoute";
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <html lang="en">
       {/*
@@ -46,19 +46,20 @@ export default function RootLayout({
                     </Link>
                   </li>
                   <li>
-                    {pathname && pathname === "/" ? (
+                    {pathname && pathname !== "/" ? (
+                      <Link
+                        scroll={false}
+                        className="hover:text-primary cursor-pointer"
+                        href="/#guest-speakers"
+                      >
+                        Guest Speakerss
+                      </Link>
+                    ) : (
                       <ScrollLink to="guest-speakers" offset={-50}>
                         <span className="hover:text-primary cursor-pointer">
                           Guest Speakers
                         </span>
                       </ScrollLink>
-                    ) : (
-                      <Link
-                        className="hover:text-primary cursor-pointer"
-                        href="/#guest-speakers"
-                      >
-                        Guest Speakers
-                      </Link>
                     )}
                   </li>
                   <li>

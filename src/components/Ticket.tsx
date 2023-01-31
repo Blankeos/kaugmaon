@@ -65,7 +65,21 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
               {/* TICKET NUMBER */}
               <div className="top-0 bottom-0 absolute right-0">
                 <div className="flex justify-center items-center h-full mr-3">
-                  <div className="rotate-90 text-4xl">#00001</div>
+                  {hasMounted ? (
+                    <div className="rotate-90 text-4xl">
+                      #
+                      <RandomReveal
+                        isPlaying
+                        duration={1}
+                        characters={"00001"}
+                        characterSet={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+                      />
+                    </div>
+                  ) : (
+                    <div className="rotate-90 text-4xl bg-white">
+                      <span className="">#00000</span>{" "}
+                    </div>
+                  )}
                 </div>
               </div>
               {/* Top Content*/}
@@ -73,20 +87,24 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
                 <div className="SPACER h-10" />
                 <div className="flex ml-10 mt-10 gap-x-6 items-center">
                   {/* Profile Picture */}
-                  <div
-                    className="w-20 h-20 rounded-full bg-green-200"
-                    style={{
-                      background: `url(${
-                        imgUrl ||
-                        "https://carlo.vercel.app/imgs/carlo_about.jpg"
-                      })`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  ></div>
+                  {imgUrl ? (
+                    <div
+                      className="w-20 h-20 rounded-full bg-green-200"
+                      style={{
+                        background: `url(${
+                          imgUrl ||
+                          "https://carlo.vercel.app/imgs/carlo_about.jpg"
+                        })`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    ></div>
+                  ) : (
+                    <div className="w-20 h-20 rounded-full bg-white" />
+                  )}
                   {/* Name and Email */}
                   <div className="">
-                    <div className="h-8">
+                    <div className="h-9">
                       {name ? (
                         <h3 className="text-2xl font-bold tracking-tight">
                           <RandomReveal
@@ -99,7 +117,17 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
                         <SkeletonLoader />
                       )}
                     </div>
-                    <p className="uppercase">{organization}</p>
+                    {email ? (
+                      <p className="uppercase">
+                        <RandomReveal
+                          isPlaying
+                          duration={1}
+                          characters={organization}
+                        />
+                      </p>
+                    ) : (
+                      <p className="bg-white select-none w-12">WVSU</p>
+                    )}
                   </div>
                 </div>
               </div>

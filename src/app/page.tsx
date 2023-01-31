@@ -26,6 +26,7 @@ import ScrollLink from "@/components/ClientScrollLink";
 import Link from "next/link";
 import { useState } from "react";
 import Loader from "@/components/Loader";
+import ScrollUp from "@/components/ScrollUp";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -43,6 +44,7 @@ export default function Home() {
   }
   return (
     <>
+      {/* <ScrollUp /> */}
       {/* Hero */}
       <div className="fluid-container flex-1 flex flex-col">
         <div className="flex flex-col items-center justify-center flex-1 flex-shrink-0 min-h-screen relative">
