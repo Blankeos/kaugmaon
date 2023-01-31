@@ -12,6 +12,7 @@ interface ITicketProps {
 import { RandomReveal } from "react-random-reveal";
 import useHasMounted from "@/hooks/useHasMounted";
 import capitalize from "@/lib/capitalize";
+import SkeletonLoader from "./SkeletonLoader";
 
 const GUEST_ORGANIZATIONS = [
   "gmail",
@@ -95,7 +96,7 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
                           />
                         </h3>
                       ) : (
-                        <h3 className="text-2xl font-bold tracking-tight bg-white h-6 w-72"></h3>
+                        <SkeletonLoader />
                       )}
                     </div>
                     <p className="uppercase">{organization}</p>

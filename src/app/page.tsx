@@ -15,7 +15,6 @@ import {
 } from "react-icons/md";
 
 import { FcGoogle as GoogleIcon } from "react-icons/fc";
-import { AiOutlineLoading3Quarters as LoadingIcon } from "react-icons/ai";
 
 // END: Icons
 
@@ -109,7 +108,7 @@ export default function Home() {
               )
             ) : (
               <div className="text-white">
-                <LoadingIcon className="w-5 h-5 animate-spin" />
+                <Loader />
               </div>
             )}
           </div>
