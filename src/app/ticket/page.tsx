@@ -15,6 +15,11 @@ import Ticket from "@/components/Ticket";
 
 import { useSession } from "next-auth/react";
 
+// increment ticket number
+interface TickNum {
+  tickToString: string;
+}
+
 const TicketPage = () => {
   const { data: session, status } = useSession();
   const isLoading = status === "loading";
