@@ -3,9 +3,6 @@
 import { toPng } from "html-to-image";
 import download from "downloadjs";
 import { toast } from "react-hot-toast";
-import ScrollUp from "@/components/ScrollUp";
-
-// import { use } from "react";
 
 // START: Icons
 import {
@@ -17,7 +14,6 @@ import Ticket from "@/components/Ticket";
 // END: Icons
 
 import { useSession } from "next-auth/react";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const TicketPage = () => {
   const { data: session, status } = useSession();
