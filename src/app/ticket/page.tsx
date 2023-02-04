@@ -15,14 +15,28 @@ import Ticket from "@/components/Ticket";
 
 import { useSession } from "next-auth/react";
 
+import { useQuery } from "react-query";
+import ticket from "@/pages/api/ticket";
+import stringifyTicketId from "@/lib/stringifyTicketId";
+
 // increment ticket number
 interface TickNum {
   tickToString: string;
 }
 
 const TicketPage = () => {
+  // Auth Data
   const { data: session, status } = useSession();
-  const isLoading = status === "loading";
+
+  // Ticket Data
+  const {
+    isLoading: ticketDataLoading,
+    error,
+    data: ticketData,
+  } = useQuery("ticketData", () =>
+    fetch("/api/ticket").then((res) => res.json())
+  );
+  const isLoading = status === "loading" || ticketDataLoading;
 
   async function downloadImage() {
     const node = document.getElementById("ticket-node");
@@ -57,6 +71,9 @@ const TicketPage = () => {
             imgUrl={session?.user?.image as string | undefined}
             name={session?.user?.name as string | undefined}
             email={session?.user?.email as string | undefined}
+            ticketId={
+              ticketData && stringifyTicketId(ticketData?.ticket.id - 1 || 0)
+            }
           />
         }
         <div className="flex gap-x-5">

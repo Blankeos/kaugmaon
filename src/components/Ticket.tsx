@@ -7,6 +7,7 @@ interface ITicketProps {
   name?: string;
   imgUrl?: string;
   email?: string;
+  ticketId?: string;
 }
 
 import { RandomReveal } from "react-random-reveal";
@@ -33,7 +34,7 @@ function getOrganization(email: string): string {
   return organization[0];
 }
 
-const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
+const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const organization = getOrganization(email || "gmail");
   const hasMounted = useHasMounted();
@@ -66,12 +67,12 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
               {/* TICKET NUMBER */}
               <div className="top-0 bottom-0 absolute right-0">
                 <div className="flex justify-center items-center h-full mr-3">
-                  {hasMounted ? (
+                  {hasMounted && ticketId ? (
                     <div className="rotate-90 text-4xl">
                       <RandomReveal
                         isPlaying
                         duration={1}
-                        characters={stringifyTicketId(0)}
+                        characters={ticketId}
                         characterSet={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
                       />
                     </div>
