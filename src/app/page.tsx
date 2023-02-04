@@ -117,12 +117,14 @@ export default function Home() {
 
           <ScrollLink
             to="event-landing-start"
-            className="bottom-10 absolute animate-bounce flex gap-x-4 items-center text-gray-500 text-sm cursor-pointer"
+            className="bottom-10 absolute text-gray-500 text-sm cursor-pointer hover:text-primary transition"
             offset={-50}
           >
-            <ForwardIcon className="rotate-90" />
-            <span>Know more about the event below</span>
-            <ForwardIcon className="rotate-90" />
+            <div className="animate-bounce flex gap-x-4 items-center ">
+              <ForwardIcon className="rotate-90" />
+              <span>Know more about the event below</span>
+              <ForwardIcon className="rotate-90" />
+            </div>
           </ScrollLink>
         </div>
       </div>
@@ -142,23 +144,27 @@ export default function Home() {
         </p>
       </div>
       {/* What's in Store for you */}
-      <div className="fluid-container py-10 bg-dark bg-opacity-80">
-        <h2 className="text-xl font-bold mb-8">What&apos;s in store for you</h2>
-        <div className="flex flex-wrap justify-center gap-10 mb-5">
-          {/* Card */}
-          <div className="flex flex-col gap-y-4 items-center">
-            <div className="rounded-lg border h-52 w-52"></div>
-            <p>Awesome Guest Speakers</p>
-          </div>
-          {/* Card */}
-          <div className="flex flex-col gap-y-4 items-center">
-            <div className="rounded-lg border h-52 w-52"></div>
-            <p>Fun Competitions</p>
-          </div>
-          {/* Card */}
-          <div className="flex flex-col gap-y-4 items-center">
-            <div className="rounded-lg border h-52 w-52"></div>
-            <p>Win Prizes!</p>
+      <div className="fluid-container">
+        <div className="py-10 bg-dark/90 rounded-2xl shadow-2xl border-gray-700 border px-7">
+          <h2 className="text-xl font-bold mb-8 text-center">
+            What&apos;s in store for you
+          </h2>
+          <div className="flex flex-wrap justify-center gap-10 mb-5">
+            {/* Card */}
+            <div className="flex flex-col gap-y-4 items-center">
+              <div className="rounded-lg border h-52 w-52"></div>
+              <p>Awesome Guest Speakers</p>
+            </div>
+            {/* Card */}
+            <div className="flex flex-col gap-y-4 items-center">
+              <div className="rounded-lg border h-52 w-52"></div>
+              <p>Fun Competitions</p>
+            </div>
+            {/* Card */}
+            <div className="flex flex-col gap-y-4 items-center">
+              <div className="rounded-lg border h-52 w-52"></div>
+              <p>Win Prizes!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -202,51 +208,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <ClientTypeAnimation />
-      {session?.user ? "No user" : "No user"}
-
-      {/* Bottom */}
-      {/* <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div> */}
+      {/* <ClientTypeAnimation /> */}
+      {/* {session?.user ? "No user" : "No user"} */}
     </>
   );
 }

@@ -16,7 +16,13 @@ const ClientScrollLink = ({
   offset = 0,
 }: ClientScrollLinkProps) => {
   return (
-    <ScrollLink to={to} className={className} smooth={true} offset={offset}>
+    <ScrollLink
+      to={to}
+      className={className}
+      smooth={true}
+      offset={offset}
+      duration={400}
+    >
       {children}
     </ScrollLink>
   );

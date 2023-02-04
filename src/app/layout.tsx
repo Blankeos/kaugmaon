@@ -71,7 +71,7 @@ export default function RootLayout({
               </div>
             </div>
           </nav>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col overflow-hidden">
             <ParticleBackground />
             <main className="flex flex-grow flex-col">{children}</main>
             <footer className="fluid-container">Footer</footer>
