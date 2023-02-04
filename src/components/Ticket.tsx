@@ -76,8 +76,10 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
                       />
                     </div>
                   ) : (
-                    <div className="rotate-90 text-4xl bg-white">
-                      <span className="">#00000</span>{" "}
+                    <div className="rotate-90 h-[50px] m-auto w-full flex items-center justify-center overflow-hidden">
+                      <div className="m-auto w-[150px] h-full">
+                        <SkeletonLoader />
+                      </div>
                     </div>
                   )}
                 </div>
@@ -126,7 +128,9 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email }) => {
                         />
                       </p>
                     ) : (
-                      <p className="bg-white select-none w-12">WVSU</p>
+                      <div className="w-[70px] overflow-hidden">
+                        <SkeletonLoader />
+                      </div>
                     )}
                   </div>
                 </div>
