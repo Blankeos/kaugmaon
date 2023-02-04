@@ -4,6 +4,7 @@ import { toPng } from "html-to-image";
 import download from "downloadjs";
 import { toast } from "react-hot-toast";
 import ScrollUp from "@/components/ScrollUp";
+import { useState } from "react";
 
 // import { use } from "react";
 
@@ -19,7 +20,16 @@ import Ticket from "@/components/Ticket";
 import { useSession } from "next-auth/react";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
+// increment ticket number
+interface TickNum {
+  tickToString: string;
+}
+
 const TicketPage = () => {
+  const [ticketNum, setTicketNum] = useState<TickNum>({
+    tickToString: "#00000",
+  });
+
   const { data: session, status } = useSession();
   const isLoading = status === "loading";
 

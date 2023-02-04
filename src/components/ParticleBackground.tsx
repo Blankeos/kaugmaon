@@ -22,7 +22,7 @@ const ParticleBackground: React.FC<Props> = () => {
 
   return (
     <div>
-      <div className="fixed backdrop-blur-[5px] z-5 h-screen w-screen -z-10" />
+      <div className="fixed backdrop-blur-[4px] z-5 h-screen w-screen -z-10" />
       <Particles
         className="absolute min-h-screen -z-20 w-full"
         init={particlesInit}
