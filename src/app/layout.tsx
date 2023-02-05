@@ -140,6 +140,14 @@ export default function RootLayout({
                             Contest Guidelines
                           </Link>
                         </li>
+                        <li>
+                          <Link
+                            href="/privacy-policy"
+                            className="hover:text-primary transition"
+                          >
+                            Privacy Policy
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   </div>
