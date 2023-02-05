@@ -96,7 +96,7 @@ export default function Home() {
               }}
               className="tracking-widest text-4xl md:text-5xl"
             >
-              <RandomReveal isPlaying duration={2} characters={"KAUGMAON"} />
+              <RandomReveal isPlaying duration={1.5} characters={"KAUGMAON"} />
             </motion.h1>
           </div>
           <motion.p
@@ -237,9 +237,23 @@ export default function Home() {
       </div>
       {/* Short About */}
       <div className="fluid-container py-10" id="event-landing-start">
-        <h2 className="text-xl font-bold mb-8">
+        <motion.h2
+          initial={{}}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+          whileInView={{
+            scale: 1,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="text-xl font-bold mb-8"
+        >
           Real<span className="text-primary">IT</span>y 2023
-        </h2>
+        </motion.h2>
         <p className="text-gray-400 mb-2">
           We are back with a bang for we proudly present to you, RealITy XII:
           Kaugmaon “The Augmented Reality.”
