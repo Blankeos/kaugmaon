@@ -81,8 +81,8 @@ export async function generateStaticParams() {
   // 1. Read the directory (gets a list of all filenames);
   const slugs = fs.readdirSync("src/data/guidelines");
 
-  return slugs.map((slug) => ({
-    slug: slug,
+  return slugs.map((s) => ({
+    slug: s.replace(".md", ""),
   }));
 }
 
