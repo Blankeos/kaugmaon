@@ -14,15 +14,10 @@ import Ticket from "@/components/Ticket";
 // END: Icons
 
 import { useSession } from "next-auth/react";
-
 import { useQuery } from "react-query";
-import ticket from "@/pages/api/ticket";
 import stringifyTicketId from "@/lib/stringifyTicketId";
-
-// increment ticket number
-interface TickNum {
-  tickToString: string;
-}
+import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
 const TicketPage = () => {
   // Auth Data
@@ -61,6 +56,19 @@ const TicketPage = () => {
     });
   }
 
+  useEffect(() => {
+    switch (status) {
+      case "unauthenticated":
+        toast.error("Please login first");
+        redirect("/");
+        break;
+      case "authenticated":
+        toast.success("Login success");
+        break;
+      default:
+        break;
+    }
+  }, [status]);
   return (
     <>
       {/* <ScrollUp /> */}
@@ -84,7 +92,7 @@ const TicketPage = () => {
             <ImageIcon size="1.2rem" />
             <span>Download</span>
           </button>
-          <div
+          {/* <div
             className="fb-share-button"
             data-href="https://carlo.vercel.app/"
             data-layout="button_count"
@@ -98,7 +106,7 @@ const TicketPage = () => {
               <ShareIcon size="1.2rem" />
               <span>Share on Facebook</span>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

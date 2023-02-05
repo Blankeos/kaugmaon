@@ -26,7 +26,6 @@ import ScrollLink from "@/components/ClientScrollLink";
 import Link from "next/link";
 import { useState } from "react";
 import Loader from "@/components/Loader";
-import ScrollUp from "@/components/ScrollUp";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -152,17 +151,41 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-10 mb-5">
             {/* Card */}
             <div className="flex flex-col gap-y-4 items-center">
-              <div className="rounded-lg border h-52 w-52"></div>
+              <div className="rounded-lg border h-52 w-52 grid place-items-center">
+                <Image
+                  src="/guest_speakers.png"
+                  alt="guest speakers"
+                  className="object-contain"
+                  width={200}
+                  height={200}
+                />
+              </div>
               <p>Awesome Guest Speakers</p>
             </div>
             {/* Card */}
             <div className="flex flex-col gap-y-4 items-center">
-              <div className="rounded-lg border h-52 w-52"></div>
+              <div className="rounded-lg border h-52 w-52 grid place-items-center">
+                <Image
+                  src="/competitions.png"
+                  alt="competitons"
+                  className="object-contain"
+                  width={200}
+                  height={200}
+                />
+              </div>
               <p>Fun Competitions</p>
             </div>
             {/* Card */}
             <div className="flex flex-col gap-y-4 items-center">
-              <div className="rounded-lg border h-52 w-52"></div>
+              <div className="rounded-lg border h-52 w-52 grid place-items-center">
+                <Image
+                  src="/win_prizes.png"
+                  alt="win_prizes"
+                  className="object-contain"
+                  width={200}
+                  height={200}
+                />
+              </div>
               <p>Win Prizes!</p>
             </div>
           </div>

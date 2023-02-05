@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         azonix: ["Azonix", "sans-serif"],
+        spacemono: ["Space Mono", "sans-serif"],
       },
       colors: {
         primary: "#DBFF00",
@@ -15,5 +16,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
