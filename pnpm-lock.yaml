@@ -43,7 +43,6 @@ specifiers:
   tsparticles: ^2.8.0
   tsparticles-engine: ^2.8.0
   typescript: 4.9.4
-  v8: ^0.1.0
 
 dependencies:
   '@next-auth/prisma-adapter': 1.0.5_itdorc3kbufr4kntuocsjgxwwi
@@ -77,7 +76,6 @@ dependencies:
   tsparticles: 2.8.0
   tsparticles-engine: 2.8.0
   typescript: 4.9.4
-  v8: 0.1.0
 
 devDependencies:
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
@@ -3175,11 +3173,6 @@ packages:
 
   /uuid/8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-    dev: false
-
-  /v8/0.1.0:
-    resolution: {integrity: sha512-cSrJCQ7WRDkSP8zbIwOO38kLSp1mGmBbx/I0pHdzQROZIMlO+qkiC4deQxg1I7pKguYJNMhMD5g/Nc1muiVyYw==}
     hasBin: true
     dev: false
 
