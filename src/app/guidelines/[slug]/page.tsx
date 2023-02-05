@@ -87,7 +87,7 @@ export async function generateStaticParams() {
 }
 
 // --- Component ---
-export const dynamic = "force-static";
+export const dynamic = "error";
 
 type GuidelinesSlugPageProps = {
   params: {
