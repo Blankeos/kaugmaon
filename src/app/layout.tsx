@@ -13,13 +13,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 import ScrollLink from "@/components/ClientScrollLink";
 import { usePathname } from "next/navigation";
 
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import GoogleLoginButton from "@/components/GoogleLoginButton";
 
 // Create a client

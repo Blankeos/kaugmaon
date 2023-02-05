@@ -106,7 +106,7 @@ const GuidelinesSlugPage = async ({
         <div className="flex flex-col gap-y-4">
           <div className="flex justify-start">
             <div className="rounded-full px-3 py-1 text-xs bg-primary text-dark mt-2 w-auto">
-              Posted {new Date(parsedMD?.metadata.date || "").toDateString()}
+              Posted @ {new Date(parsedMD?.metadata.date || "").toDateString()}
             </div>
           </div>
 
