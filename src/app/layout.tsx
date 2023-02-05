@@ -14,13 +14,7 @@ import ScrollLink from "@/components/ClientScrollLink";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import GoogleLoginButton from "@/components/GoogleLoginButton";
 
 // Create a client

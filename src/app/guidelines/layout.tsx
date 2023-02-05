@@ -10,6 +10,9 @@ let guideslinesData = getGuidelinesList();
 interface GuidelinesLayoutProps {
   children: React.ReactNode;
 }
+
+export const dynamic = "error";
+
 const GuidelinesLayout = ({ children }: GuidelinesLayoutProps) => {
   return (
     <div>

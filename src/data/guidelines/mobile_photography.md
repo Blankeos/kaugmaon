@@ -1,5 +1,5 @@
 ---
-title: "Mobile Photography Contest"
+title: "🤳 Mobile Photography Contest"
 description: "Mobile Photography Contest Guidelines"
 date: "2023-02-05"
 registerLink: "http://bit.ly/3kuVdth"

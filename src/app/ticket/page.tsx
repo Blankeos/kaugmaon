@@ -41,7 +41,9 @@ const TicketPage = () => {
       return;
     }
 
-    await toPng(node).then(function (dataUrl) {
+    await toPng(node, {
+      backgroundColor: "#181818",
+    }).then(function (dataUrl) {
       var img = new Image();
       img.src = dataUrl;
       download(dataUrl, "my-ticket.png");
@@ -92,22 +94,20 @@ const TicketPage = () => {
             <ImageIcon size="1.2rem" />
             <span>Download</span>
           </button>
-          {/* <div
-            className="fb-share-button"
-            data-href="https://carlo.vercel.app/"
-            data-layout="button_count"
-            data-size="small"
-          >
-            <Link
-              target="_blank"
-              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-              className="fb-xfbml-parse-ignore border px-6 py-3 rounded-xl hover:bg-white hover:text-dark flex gap-x-2 items-center"
-            >
-              <ShareIcon size="1.2rem" />
-              <span>Share on Facebook</span>
-            </Link>
-          </div> */}
         </div>
+      </div>
+
+      {/* The thing below is used for downloading a picture */}
+      <div className="absolute -left-[50000px]">
+        <Ticket
+          imgUrl={session?.user?.image as string | undefined}
+          name={session?.user?.name as string | undefined}
+          email={session?.user?.email as string | undefined}
+          ticketId={
+            ticketData && stringifyTicketId(ticketData?.ticket.id - 1 || 0)
+          }
+          isInteractive={false}
+        />
       </div>
     </>
   );

@@ -81,12 +81,14 @@ export async function generateStaticParams() {
   // 1. Read the directory (gets a list of all filenames);
   const slugs = fs.readdirSync("src/data/guidelines");
 
-  return slugs.map((slug) => ({
-    slug: slug,
+  return slugs.map((s) => ({
+    slug: s.replace(".md", ""),
   }));
 }
 
 // --- Component ---
+export const dynamic = "error";
+
 type GuidelinesSlugPageProps = {
   params: {
     slug: string;
@@ -106,7 +108,7 @@ const GuidelinesSlugPage = async ({
         <div className="flex flex-col gap-y-4">
           <div className="flex justify-start">
             <div className="rounded-full px-3 py-1 text-xs bg-primary text-dark mt-2 w-auto">
-              Posted {new Date(parsedMD?.metadata.date || "").toDateString()}
+              Posted @ {new Date(parsedMD?.metadata.date || "").toDateString()}
             </div>
           </div>
 

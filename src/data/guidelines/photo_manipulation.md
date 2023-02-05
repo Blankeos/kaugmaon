@@ -1,5 +1,5 @@
 ---
-title: "Photo Manipulation Contest"
+title: "✨ Photo Manipulation Contest"
 description: "Photo Manipulation Contest"
 date: "2023-02-05"
 registerLink: "http://bit.ly/3wuecXS"
