@@ -95,7 +95,7 @@ export default function RootLayout({
             <div className="min-h-screen flex flex-col overflow-hidden">
               <ParticleBackground />
               <main className="flex flex-grow flex-col">{children}</main>
-              {!routesAreShownOn(["/ticket"]) && (
+              {!useRoutesAreShownOn(["/ticket"]) && (
                 <footer className="relative flex flex-col gap-y-8">
                   <div className="fluid-container">
                     <div className="bg-primary py-16 rounded-2xl flex flex-col items-center gap-y-2 transition hover:ring-2 hover:ring-green-500">
@@ -160,7 +160,7 @@ export default function RootLayout({
   );
 }
 
-function routesAreShownOn(paths: string[]): boolean {
+function useRoutesAreShownOn(paths: string[]): boolean {
   const currentPathname = usePathname();
 
   if (currentPathname == null) return false;

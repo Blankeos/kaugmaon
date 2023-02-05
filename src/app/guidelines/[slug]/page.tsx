@@ -125,7 +125,7 @@ const GuidelinesSlugPage = async ({
                 target="_blank"
               >
                 <span>Register here</span>
-                <ForwardIcon className="group-hover:translate-x-1" />
+                <ForwardIcon className="group-hover:translate-x-1 transition" />
               </Link>
             </div>
           )}

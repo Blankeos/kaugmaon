@@ -23,10 +23,10 @@ const Nav = ({ guidelinesData }: NavProps) => {
         <Link
           key={i}
           href={"/guidelines/" + g.slug}
-          className={`border px-3.5 py-2 ${
+          className={`border px-3.5 py-2 transition duration-75 ${
             matchesPatchname("/guidelines/" + g.slug)
               ? "border-primary bg-primary text-dark"
-              : "text-gray-200 hover:bg-primary hover:text-dark hover:border-primary"
+              : "text-gray-200 hover:bg-primary hover:text-white hover:border-primary hover:bg-opacity-50"
           }`}
         >
           {g.metadata.title}

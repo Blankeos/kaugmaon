@@ -14,7 +14,6 @@ import { RandomReveal } from "react-random-reveal";
 import useHasMounted from "@/hooks/useHasMounted";
 import capitalize from "@/lib/capitalize";
 import SkeletonLoader from "./SkeletonLoader";
-import stringifyTicketId from "@/lib/stringifyTicketId";
 
 const GUEST_ORGANIZATIONS = [
   "gmail",
@@ -69,6 +68,7 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
                 <div className="flex justify-center items-center h-full mr-3">
                   {hasMounted && ticketId ? (
                     <div className="rotate-90 text-4xl">
+                      #
                       <RandomReveal
                         isPlaying
                         duration={1}
