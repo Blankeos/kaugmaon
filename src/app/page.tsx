@@ -20,6 +20,8 @@ import { FcGoogle as GoogleIcon } from "react-icons/fc";
 
 import { TypeAnimation } from "react-type-animation";
 import ClientTypeAnimation from "@/components/ClientTypeAnimation";
+import { RandomReveal } from "react-random-reveal";
+import { motion } from "framer-motion";
 
 import ScrollLink from "@/components/ClientScrollLink";
 
@@ -49,7 +51,25 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center flex-1 flex-shrink-0 min-h-screen relative">
           <div className="flex flex-col items-center gap-y-5 text-center">
             <div className="relative">
-              <div className={styles.thirteen}>
+              <motion.div
+                initial={{
+                  y: -50,
+                  opacity: 0,
+                }}
+                transition={{
+                  duration: 1,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+                whileInView={{
+                  y: 0,
+                  opacity: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                className={styles.thirteen}
+              >
                 <Image
                   src="/MainLogo.png"
                   alt="13"
@@ -57,18 +77,90 @@ export default function Home() {
                   height={31}
                   priority
                 />
-              </div>
+              </motion.div>
             </div>
-            <h1 className="tracking-widest text-4xl md:text-5xl">KAUGMAON</h1>
+            <motion.h1
+              initial={{
+                scale: 3.2,
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                delay: 2,
+              }}
+              whileInView={{
+                scale: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="tracking-widest text-4xl md:text-5xl"
+            >
+              <RandomReveal isPlaying duration={2} characters={"KAUGMAON"} />
+            </motion.h1>
           </div>
-          <p className="text-xl text-center text-gray-300">
+          <motion.p
+            initial={{
+              y: 50,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="text-xl text-center text-gray-300"
+          >
             the augmented real<span className="text-primary">IT</span>y
-          </p>
-          <p className="text-primary text-sm text-center mt-10">
+          </motion.p>
+          <motion.p
+            initial={{
+              y: 50,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              delay: 3,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="text-primary text-sm text-center mt-10"
+          >
             February 17, 2023{" "}
             <span className="text-cyan-400">@ WVSU Cultural Center</span>
-          </p>
-          <div className="flex flex-col items-center gap-y-2 mt-16">
+          </motion.p>
+          <motion.div
+            initial={{
+              y: 50,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              delay: 3.5,
+            }}
+            whileInView={{
+              y: 0,
+              opacity: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="flex flex-col items-center gap-y-2 mt-16"
+          >
             {status !== "loading" ? (
               session ? (
                 <div className="text-center">
@@ -112,18 +204,34 @@ export default function Home() {
                 <Loader />
               </div>
             )}
-          </div>
+          </motion.div>
 
           <ScrollLink
             to="event-landing-start"
             className="bottom-10 absolute text-gray-500 text-sm cursor-pointer hover:text-primary transition"
             offset={-50}
           >
-            <div className="animate-bounce flex gap-x-4 items-center ">
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                delay: 4,
+              }}
+              whileInView={{
+                opacity: 1,
+              }}
+              viewport={{
+                once: true,
+              }}
+              className="animate-bounce flex gap-x-4 items-center "
+            >
               <ForwardIcon className="rotate-90" />
               <span>Know more about the event below</span>
               <ForwardIcon className="rotate-90" />
-            </div>
+            </motion.div>
           </ScrollLink>
         </div>
       </div>

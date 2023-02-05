@@ -12,6 +12,7 @@ import AuthContext from "@/context/AuthContext";
 import ParticleBackground from "@/components/ParticleBackground";
 import ScrollLink from "@/components/ClientScrollLink";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 import {
   useQuery,
@@ -50,14 +51,51 @@ export default function RootLayout({
                     href="/"
                     className="hover:bg-white hover:bg-opacity-10 p-2 rounded-md"
                   >
-                    <Image
-                      src="/MainLogo.png"
-                      alt="13"
-                      width={31}
-                      height={28}
-                    />
+                    <motion.div
+                      initial={{
+                        x: -100,
+                        opacity: 0,
+                      }}
+                      transition={{
+                        duration: 1,
+                        ease: "easeInOut",
+                        delay: 2,
+                      }}
+                      whileInView={{
+                        x: 0,
+                        opacity: 1,
+                      }}
+                      viewport={{
+                        once: true,
+                      }}
+                    >
+                      <Image
+                        src="/MainLogo.png"
+                        alt="13"
+                        width={31}
+                        height={28}
+                      />
+                    </motion.div>
                   </Link>
-                  <ul className="flex text-sm gap-x-8">
+                  <motion.ul
+                    initial={{
+                      x: 100,
+                      opacity: 0,
+                    }}
+                    transition={{
+                      duration: 1,
+                      ease: "easeInOut",
+                      delay: 2,
+                    }}
+                    whileInView={{
+                      x: 0,
+                      opacity: 1,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    className="flex text-sm gap-x-8"
+                  >
                     <li>
                       <Link href="/program" className="hover:text-primary">
                         Programme
@@ -88,12 +126,29 @@ export default function RootLayout({
                         Contest Guidelines
                       </Link>
                     </li>
-                  </ul>
+                  </motion.ul>
                 </div>
               </div>
             </nav>
             <div className="min-h-screen flex flex-col overflow-hidden">
-              <ParticleBackground />
+              <motion.div
+                initial={{
+                  opacity: 0,
+                }}
+                transition={{
+                  duration: 1,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+                whileInView={{
+                  opacity: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+              >
+                <ParticleBackground />
+              </motion.div>
               <main className="flex flex-grow flex-col">{children}</main>
               {!useRoutesAreShownOn(["/ticket"]) && (
                 <footer className="relative flex flex-col gap-y-8">
