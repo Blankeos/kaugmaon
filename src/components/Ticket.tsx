@@ -3,13 +3,6 @@ import React, { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import NextImage from "next/image";
 
-interface ITicketProps {
-  name?: string;
-  imgUrl?: string;
-  email?: string;
-  ticketId?: string;
-}
-
 import { RandomReveal } from "react-random-reveal";
 import useHasMounted from "@/hooks/useHasMounted";
 import capitalize from "@/lib/capitalize";
@@ -33,7 +26,22 @@ function getOrganization(email: string): string {
   return organization[0];
 }
 
-const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
+// -- Component --
+interface ITicketProps {
+  name?: string;
+  imgUrl?: string;
+  email?: string;
+  ticketId?: string;
+  isInteractive?: boolean;
+}
+
+const Ticket: React.FC<ITicketProps> = ({
+  name,
+  imgUrl,
+  email,
+  ticketId,
+  isInteractive = true,
+}) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const organization = getOrganization(email || "gmail");
   const hasMounted = useHasMounted();
@@ -42,12 +50,15 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
     <>
       {/* The Ticket */}
       <div
-        className="relative p-8"
-        id="ticket-node"
+        className={`relative p-8 grid place-items-center ${
+          isInteractive ? "" : "w-[45rem] h-[45rem]"
+        }`}
+        id={isInteractive ? undefined : "ticket-node"}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <Tilt
+          tiltEnable={isInteractive}
           tiltReverse
           tiltAngleXManual={isHovered ? undefined : 0}
           tiltAngleYManual={isHovered ? undefined : 0}
@@ -69,12 +80,16 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
                   {hasMounted && ticketId ? (
                     <div className="rotate-90 text-4xl">
                       #
-                      <RandomReveal
-                        isPlaying
-                        duration={1}
-                        characters={ticketId}
-                        characterSet={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
-                      />
+                      {isInteractive ? (
+                        <RandomReveal
+                          isPlaying
+                          duration={1}
+                          characters={ticketId}
+                          characterSet={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+                        />
+                      ) : (
+                        ticketId
+                      )}
                     </div>
                   ) : (
                     <div className="rotate-90 h-[50px] m-auto w-full flex items-center justify-center overflow-hidden">
@@ -94,10 +109,7 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
                     <div
                       className="w-20 h-20 rounded-full bg-green-200"
                       style={{
-                        background: `url(${
-                          imgUrl ||
-                          "https://carlo.vercel.app/imgs/carlo_about.jpg"
-                        })`,
+                        background: `url(${imgUrl})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
@@ -110,11 +122,15 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
                     <div className="h-9">
                       {name ? (
                         <h3 className="text-2xl font-bold tracking-tight">
-                          <RandomReveal
-                            isPlaying
-                            duration={1}
-                            characters={capitalize(name)}
-                          />
+                          {isInteractive ? (
+                            <RandomReveal
+                              isPlaying
+                              duration={1}
+                              characters={capitalize(name)}
+                            />
+                          ) : (
+                            capitalize(name)
+                          )}
                         </h3>
                       ) : (
                         <SkeletonLoader />
@@ -122,11 +138,15 @@ const Ticket: React.FC<ITicketProps> = ({ name, imgUrl, email, ticketId }) => {
                     </div>
                     {email ? (
                       <p className="uppercase">
-                        <RandomReveal
-                          isPlaying
-                          duration={1}
-                          characters={organization}
-                        />
+                        {isInteractive ? (
+                          <RandomReveal
+                            isPlaying
+                            duration={1}
+                            characters={organization}
+                          />
+                        ) : (
+                          organization
+                        )}
                       </p>
                     ) : (
                       <div className="w-[70px] overflow-hidden">

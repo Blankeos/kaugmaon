@@ -1,5 +1,5 @@
 ---
-title: "Mini Film Contest"
+title: "🎬 Mini Film Contest"
 description: "Mini Film Contest Guidelines"
 date: "2023-02-05"
 registerLink: "http://bit.ly/3HdpRPQ"

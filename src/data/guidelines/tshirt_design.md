@@ -1,5 +1,5 @@
 ---
-title: "T-Shirt Design Contest"
+title: "👕 T-Shirt Design Contest"
 description: "T-Shirt Design Contest"
 date: "2023-02-05"
 registerLink: "http://bit.ly/3HuNpkn"

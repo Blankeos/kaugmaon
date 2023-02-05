@@ -1,5 +1,5 @@
 ---
-title: "Photo Race Competition"
+title: "📸 Photo Race Competition"
 description: "Photo Race Competition Guidelines"
 date: "2023-02-05"
 registerLink: "http://bit.ly/3XSIkrt"
