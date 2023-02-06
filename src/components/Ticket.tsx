@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 
 import Tilt from "react-parallax-tilt";
@@ -24,6 +26,8 @@ function getOrganization(email: string): string {
   // - emailSplit = email.split("@"); // -> ['carlo', 'wvsu.edu.ph']
   // - domain = emailSplit[1]; // 'wvsu.edu.ph'
   // - organization = domain.split(".")[0] -> ['wvsu', 'edu', 'ph'] -> 'wvsu' ✅ (this is what we want)
+  if (!email) return "guest";
+
   let organization = email.split("@")[1].split(".")[0];
 
   if (GUEST_ORGANIZATIONS.includes(organization)) return "guest";
