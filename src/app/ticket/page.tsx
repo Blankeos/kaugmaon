@@ -75,15 +75,15 @@ const TicketPage = () => {
     <>
       {/* <ScrollUp /> */}
       <div className="SPACER h-20" />
-      <div className="flex-1 grid place-items-center">
+      <div className="flex-1 flex flex-col items-center gap-y-0 sm:grid sm:place-items-center sm:pb-10">
         {
           <Ticket
-            imgUrl={session?.user?.image as string | undefined}
-            name={session?.user?.name as string | undefined}
-            email={session?.user?.email as string | undefined}
-            ticketId={
-              ticketData && stringifyTicketId(ticketData?.ticket.id - 1 || 0)
-            }
+          imgUrl={session?.user?.image as string | undefined}
+          name={session?.user?.name as string | undefined}
+          email={session?.user?.email as string | undefined}
+          ticketId={
+            ticketData && stringifyTicketId(ticketData?.ticket.id - 1 || 0)
+          }
           />
         }
         <div className="flex gap-x-5">
@@ -95,6 +95,7 @@ const TicketPage = () => {
             <span>Download</span>
           </button>
         </div>
+        <div className="h-10" />
       </div>
 
       {/* The thing below is used for downloading a picture */}

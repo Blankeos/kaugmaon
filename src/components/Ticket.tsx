@@ -7,6 +7,7 @@ import { RandomReveal } from "react-random-reveal";
 import useHasMounted from "@/hooks/useHasMounted";
 import capitalize from "@/lib/capitalize";
 import SkeletonLoader from "./SkeletonLoader";
+import { useMediaQuery } from "react-responsive";
 
 const GUEST_ORGANIZATIONS = [
   "gmail",
@@ -45,6 +46,9 @@ const Ticket: React.FC<ITicketProps> = ({
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const organization = getOrganization(email || "gmail");
   const hasMounted = useHasMounted();
+  const isLandscape = useMediaQuery({query: "(min-width: 640px)"});
+
+  if (!isLandscape) return <TicketPortrait email={email} imgUrl={imgUrl} isInteractive={true} name={name} ticketId={ticketId} />
 
   return (
     <>
@@ -107,7 +111,7 @@ const Ticket: React.FC<ITicketProps> = ({
                   {/* Profile Picture */}
                   {imgUrl ? (
                     <div
-                      className="w-20 h-20 rounded-full bg-green-200"
+                      className="w-20 h-20 rounded-full"
                       style={{
                         background: `url(${imgUrl})`,
                         backgroundSize: "cover",
@@ -181,3 +185,143 @@ const Ticket: React.FC<ITicketProps> = ({
 };
 
 export default Ticket;
+
+
+// -- PORTRAIT --
+
+const TicketPortrait: React.FC<ITicketProps> = ({
+    name,
+    imgUrl,
+    email,
+    ticketId,
+    isInteractive = true,
+  }) => {
+    const organization = getOrganization(email || "gmail");
+    const hasMounted = useHasMounted();
+
+    return (
+      <>
+        {/* The Ticket */}
+        <div
+          className={`relative p-3 grid place-items-center ${
+            isInteractive ? "" : "w-[45rem] h-[45rem]"
+          }`}
+          id={isInteractive ? undefined : "ticket-node"}
+        >
+            <div className="relative w-[18rem] h-[35rem]">
+              <NextImage
+                src="/ticket_portrait.png"
+                fill
+                alt="ticket"
+                className="object-contain absolute"
+              />
+              {/* Content */}
+              <div className="relative w-full h-full flex flex-col">
+                {/* TICKET NUMBER */}
+                <div className="bottom-14 absolute self-center">
+                  <div className="flex justify-center items-center h-full mr-3">
+                    {hasMounted && ticketId ? (
+                      <div className="text-3xl">
+                        #
+                        {isInteractive ? (
+                          <RandomReveal
+                            isPlaying
+                            duration={1}
+                            characters={ticketId}
+                            characterSet={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+                          />
+                        ) : (
+                          ticketId
+                        )}
+                      </div>
+                    ) : (
+                      <div className="rotate-90 h-[50px] m-auto w-full flex items-center justify-center overflow-hidden">
+                        <div className="m-auto w-[150px] h-full">
+                          <SkeletonLoader />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Top Content*/}
+                <div className="">
+                  <div className="flex flex-col mt-12 gap-x-6 items-center">
+                    {/* Profile Picture */}
+                    {imgUrl ? (
+                      <div
+                        className="w-14 h-14 rounded-full bg-green-200"
+                        style={{
+                          background: `url(${imgUrl})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      ></div>
+                    ) : (
+                      <div className="w-20 h-20 rounded-full bg-white" />
+                    )}
+                    {/* Name and Email */}
+                    <div className="">
+                      <div className="mt-2">
+                        {name ? (
+                          <h3 className="text-xl font-bold tracking-tight text-center w-64">
+                            {isInteractive ? (
+                              <RandomReveal
+                                isPlaying
+                                duration={1}
+                                characters={capitalize(name)}
+                              />
+                            ) : (
+                              capitalize(name)
+                            )}
+                          </h3>
+                        ) : (
+                          <SkeletonLoader />
+                        )}
+                      </div>
+                      {email ? (
+                        <p className="uppercase text-center text-xs text-gray-300">
+                          {isInteractive ? (
+                            <RandomReveal
+                              isPlaying
+                              duration={1}
+                              characters={organization}
+                            />
+                          ) : (
+                            organization
+                          )}
+                        </p>
+                      ) : (
+                        <div className="w-[70px] overflow-hidden">
+                          <SkeletonLoader />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+  
+                {/* Bottom Content*/}
+                <div className="absolute bottom-20 mb-8">
+                  <div className="flex px-8 items-center">
+                    <div className="w-52">
+                      <div className="tracking-widest font-azonix">
+                        KAUGMAON
+                      </div>
+                      <p className="text-xs">February 17, 2023</p>
+                    </div>
+                    <div className="text-xs">
+                      <p>10:00 AM</p>
+                      <p>
+                        Hosted by <b>LINK.EXE</b>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="SPACER h-10" />
+                </div>
+
+              </div>
+            </div>
+        </div>
+      </>
+    );
+}
