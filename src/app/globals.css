@@ -239,6 +239,27 @@ a {
 
 .skeleton {
   height: 200px;
+  width: 200px;
+  background: #fff;
+  transform: rotate(50deg);
+  animation: move linear infinite 1s;
+  position: absolute;
+  filter: blur(10px);
+}
+
+.skeleton-loader-img {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  background: #eee;
+  align-items: center;
+  position: relative;
+  opacity: 0.3;
+}
+
+.skeleton-img {
+  height: 200px;
   width: 70px;
   background: #fff;
   transform: rotate(50deg);

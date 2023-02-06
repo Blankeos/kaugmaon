@@ -115,7 +115,7 @@ const Ticket: React.FC<ITicketProps> = ({
                       }}
                     ></div>
                   ) : (
-                    <div className="w-20 h-20 rounded-full bg-white" />
+                    <div className="w-20 h-20 rounded-full bg-white/40" />
                   )}
                   {/* Name and Email */}
                   <div className="">
