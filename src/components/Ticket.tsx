@@ -41,6 +41,9 @@ interface ITicketProps {
   imgUrl?: string;
   email?: string;
   ticketId?: string;
+  /**
+   * This prop assigns a `#ticket-node` id on the Ticket so it can be used for downloading using the id with the `html-image` + `downloadjs` code.
+   */
   isInteractive?: boolean;
 }
 
@@ -61,7 +64,7 @@ const Ticket: React.FC<ITicketProps> = ({
       <TicketPortrait
         email={email}
         imgUrl={imgUrl}
-        isInteractive={true}
+        isInteractive={false}
         name={name}
         ticketId={ticketId}
       />

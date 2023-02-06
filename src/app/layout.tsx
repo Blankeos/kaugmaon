@@ -17,7 +17,6 @@ import GoogleLoginButton from "@/components/GoogleLoginButton";
 import { usePathname } from "next/navigation";
 import Nav from "./Nav";
 
-
 // Create a client
 const queryClient = new QueryClient();
 
@@ -88,7 +87,27 @@ export default function RootLayout({
                         <p className="mt-4 text-xs text-gray-400">
                           Made with 💚
                           <br />
-                          by Carlo, Asther, and Jed
+                          by{" "}
+                          <Link
+                            className="underline text-primary hover:no-underline"
+                            href="https://carlo.vercel.app"
+                          >
+                            Carlo
+                          </Link>
+                          ,{" "}
+                          <Link
+                            className="underline text-primary hover:no-underline"
+                            href="https://asther.vercel.app"
+                          >
+                            Asther
+                          </Link>
+                          , and{" "}
+                          <Link
+                            className="underline text-primary hover:no-underline"
+                            href="https://jed.vercel.app"
+                          >
+                            Jed
+                          </Link>
                         </p>
                       </div>
                       <ul className="text-sm text-gray-200 flex flex-col gap-y-4">
@@ -129,7 +148,6 @@ export default function RootLayout({
     </html>
   );
 }
-
 
 function useRoutesAreShownOn(paths: string[]): boolean {
   const currentPathname = usePathname();
