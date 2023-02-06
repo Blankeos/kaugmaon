@@ -31,10 +31,12 @@ import Loader from "@/components/Loader";
 
 // ReactResponsive
 import { useMediaQuery } from "react-responsive";
+import useHasMounted from "@/hooks/useHasMounted";
 
 export default function Home() {
   const { data: session, status } = useSession();
   const [loading, setLoading] = useState<boolean>(false);
+  const hasMounted = useHasMounted();
 
   async function handleSignIn() {
     setLoading(true);
@@ -48,7 +50,7 @@ export default function Home() {
   }
 
   // responsiveness:
-  const isSM = useMediaQuery({query: '(min-width: 640px)'});
+  const isSM = useMediaQuery({query: '(min-width: 768px)'});
   return (
     <>
       {/* Hero */}
@@ -101,7 +103,12 @@ export default function Home() {
               }}
               className="tracking-widest text-4xl md:text-5xl"
             >
-              <RandomReveal isPlaying duration={1.5} characters={"KAUGMAON"} />
+              {
+                hasMounted ? 
+                <RandomReveal isPlaying duration={1.5} characters={"KAUGMAON"} />
+                :
+                "KAUGMAON"
+              }
             </motion.h1>
           </div>
           <motion.p

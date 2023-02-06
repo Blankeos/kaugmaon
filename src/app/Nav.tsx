@@ -21,9 +21,7 @@ const Nav = () => {
   // when animating using a button click later on.
   const [entryAnimationHasEnded, setEntryAnimationHasEnded] = useState<boolean>(false);
   function handleEntryAnimationEnd() {
-    console.log("Calling entry", entryAnimationHasEnded);
     if (entryAnimationHasEnded) return;
-    console.log("Ended!");
     setEntryAnimationHasEnded(true);
   }
 
@@ -66,8 +64,15 @@ const Nav = () => {
 
                   {/* Right Side */}
                   <div className=''>
-                    <button
+                    <motion.button
                     onClick={toggleNavBar}
+                    initial={{x: 50, opacity: 0}}
+                    animate={{x: 0, opacity: 1}}
+                    transition={{
+                      duration: 1,
+                      ease: "easeInOut",
+                      delay: 2,
+                    }}
                     className='hover:bg-white hover:bg-opacity-20 h-12 w-12 rounded-md grid place-items-center z-20 relative sm:hidden'>
                       {
                         isOpen ? 
@@ -75,7 +80,7 @@ const Nav = () => {
                         :
                         <MenuIcon size="2rem" />
                       }
-                    </button>
+                    </motion.button>
                     <motion.ul
                     className={`self-start flex text-sm gap-x-8 items-end
                     flex-col gap-y-10 bg-dark absolute top-0 right-0 min-h-screen pt-20 px-10 
