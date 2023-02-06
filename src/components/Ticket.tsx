@@ -48,7 +48,7 @@ const Ticket: React.FC<ITicketProps> = ({
   const hasMounted = useHasMounted();
   const isLandscape = useMediaQuery({query: "(min-width: 640px)"});
 
-  if (!isLandscape) return <TicketPortrait email={email} imgUrl={imgUrl} isInteractive={true} name={name} ticketId={ticketId} />
+  if (hasMounted && !isLandscape) return <TicketPortrait email={email} imgUrl={imgUrl} isInteractive={true} name={name} ticketId={ticketId} />
 
   return (
     <>
@@ -318,7 +318,6 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                   </div>
                   <div className="SPACER h-10" />
                 </div>
-
               </div>
             </div>
         </div>
