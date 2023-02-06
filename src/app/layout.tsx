@@ -10,12 +10,13 @@ import ClientToaster from "@/components/ClientToaster";
 
 import AuthContext from "@/context/AuthContext";
 import ParticleBackground from "@/components/ParticleBackground";
-import ScrollLink from "@/components/ClientScrollLink";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import GoogleLoginButton from "@/components/GoogleLoginButton";
+import { usePathname } from "next/navigation";
+import Nav from "./Nav";
+
 
 // Create a client
 const queryClient = new QueryClient();
@@ -25,7 +26,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
   return (
     <html lang="en">
       {/*
@@ -36,94 +36,7 @@ export default function RootLayout({
       <body>
         <AuthContext>
           <QueryClientProvider client={queryClient}>
-            <nav className="fixed top-0 w-full z-20 backdrop-blur-sm">
-              <div className="fluid-container">
-                {/* Nav Content Start */}
-                <div className="flex justify-between gap-x-10 h-20 items-center">
-                  {/* Left Side */}
-                  <Link
-                    href="/"
-                    className="hover:bg-white hover:bg-opacity-10 p-2 rounded-md"
-                  >
-                    <motion.div
-                      initial={{
-                        x: -100,
-                        opacity: 0,
-                      }}
-                      transition={{
-                        duration: 1,
-                        ease: "easeInOut",
-                        delay: 2,
-                      }}
-                      whileInView={{
-                        x: 0,
-                        opacity: 1,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                    >
-                      <Image
-                        src="/MainLogo.png"
-                        alt="13"
-                        width={31}
-                        height={28}
-                      />
-                    </motion.div>
-                  </Link>
-                  <motion.ul
-                    initial={{
-                      x: 100,
-                      opacity: 0,
-                    }}
-                    transition={{
-                      duration: 1,
-                      ease: "easeInOut",
-                      delay: 2,
-                    }}
-                    whileInView={{
-                      x: 0,
-                      opacity: 1,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                    className="flex text-sm gap-x-8"
-                  >
-                    <li>
-                      <Link href="/program" className="hover:text-primary">
-                        Programme
-                      </Link>
-                    </li>
-                    <li>
-                      {pathname && pathname !== "/" ? (
-                        <Link
-                          scroll={false}
-                          className="hover:text-primary cursor-pointer"
-                          href="/#guest-speakers"
-                        >
-                          Guest Speakers
-                        </Link>
-                      ) : (
-                        <ScrollLink to="guest-speakers" offset={-50}>
-                          <span className="hover:text-primary cursor-pointer">
-                            Guest Speakers
-                          </span>
-                        </ScrollLink>
-                      )}
-                    </li>
-                    <li>
-                      <Link
-                        href="/guidelines/mini_film"
-                        className="hover:text-primary"
-                      >
-                        Contest Guidelines
-                      </Link>
-                    </li>
-                  </motion.ul>
-                </div>
-              </div>
-            </nav>
+            <Nav />
             <div className="min-h-screen flex flex-col overflow-hidden">
               <motion.div
                 initial={{
@@ -216,6 +129,7 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 function useRoutesAreShownOn(paths: string[]): boolean {
   const currentPathname = usePathname();

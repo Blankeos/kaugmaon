@@ -42,6 +42,7 @@ DATABASE_URL="mysql://johndoe:randompassword@localhost:3306/mydb"
 4. Sync the database schema:
 
 ```sh
+$ npx prisma generate
 $ npx prisma db push
 ```
 
