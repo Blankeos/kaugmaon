@@ -4,29 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Space Mono";
-}
-
-.fluid-container {
-  @apply max-w-6xl w-full mx-auto px-7;
-}
-
-::-moz-selection {
-  /* Code for Firefox */
-  color: #181818;
-  background: white;
-  /* color: white;
-  background: #ddff0074; */
-}
-
-::selection {
-  color: #181818;
-  background: white;
-  /* color: white;
-  background: #ddff0074; */
-}
-
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -69,37 +46,19 @@ body {
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.fluid-container {
+  @apply max-w-6xl w-full mx-auto px-7;
+}
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+::-moz-selection {
+  /* Code for Firefox */
+  color: #181818;
+  background: white;
+}
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+::selection {
+  color: #181818;
+  background: white;
 }
 
 * {
@@ -115,13 +74,15 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  font-family: "Space Mono";
+  color: white;;
+  background: black;
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 a {
@@ -129,11 +90,11 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */
 
 .glowy {
   width: 240px;

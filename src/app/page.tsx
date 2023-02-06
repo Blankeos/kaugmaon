@@ -29,6 +29,9 @@ import Link from "next/link";
 import { useState } from "react";
 import Loader from "@/components/Loader";
 
+// ReactResponsive
+import { useMediaQuery } from "react-responsive";
+
 export default function Home() {
   const { data: session, status } = useSession();
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,9 +46,11 @@ export default function Home() {
       setLoading(false);
     }, 12000);
   }
+
+  // responsiveness:
+  const isSM = useMediaQuery({query: '(min-width: 640px)'});
   return (
     <>
-      {/* <ScrollUp /> */}
       {/* Hero */}
       <div className="fluid-container flex-1 flex flex-col">
         <div className="flex flex-col items-center justify-center flex-1 flex-shrink-0 min-h-screen relative">
@@ -68,7 +73,7 @@ export default function Home() {
                 viewport={{
                   once: true,
                 }}
-                className={styles.thirteen}
+                // className={styles.thirteen}
               >
                 <Image
                   src="/MainLogo.png"
@@ -81,7 +86,7 @@ export default function Home() {
             </div>
             <motion.h1
               initial={{
-                scale: 3.2,
+                scale: isSM ? 3.2 : 1.5,
               }}
               transition={{
                 duration: 1,
