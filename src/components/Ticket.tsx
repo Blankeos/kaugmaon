@@ -52,7 +52,7 @@ const Ticket: React.FC<ITicketProps> = ({
   isInteractive = true,
 }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const organization = getOrganization(email || "gmail");
+  const organization = getOrganization(email || "person@gmail.com");
   const hasMounted = useHasMounted();
   const isLandscape = useMediaQuery({ query: "(min-width: 640px)" });
 
@@ -212,7 +212,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
   ticketId,
   isInteractive = true,
 }) => {
-  const organization = getOrganization(email || "gmail");
+  const organization = getOrganization(email || "person@gmail.com");
   const hasMounted = useHasMounted();
 
   return (
