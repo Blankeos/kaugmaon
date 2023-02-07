@@ -32,6 +32,7 @@ import Loader from "@/components/Loader";
 // ReactResponsive
 import { useMediaQuery } from "react-responsive";
 import useHasMounted from "@/hooks/useHasMounted";
+import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -50,7 +51,12 @@ export default function Home() {
   }
 
   // responsiveness:
-  const isSM = useMediaQuery({query: '(min-width: 768px)'});
+  const isSM = useMediaQuery({ query: "(min-width: 768px)" });
+
+  // Prevent animation using EntryAnimationContext:
+  const { handleEntryAnimationComplete, hasLoaded: entryAnimHasLoaded } =
+    useEntryAnimationContext();
+
   return (
     <>
       {/* Hero */}
@@ -59,7 +65,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-y-5 text-center">
             <div className="relative">
               <motion.div
-                initial={{
+                initial={!entryAnimHasLoaded && {
                   y: -50,
                   opacity: 0,
                 }}
@@ -75,7 +81,6 @@ export default function Home() {
                 viewport={{
                   once: true,
                 }}
-                // className={styles.thirteen}
               >
                 <Image
                   src="/MainLogo.png"
@@ -87,9 +92,11 @@ export default function Home() {
               </motion.div>
             </div>
             <motion.h1
-              initial={{
-                scale: isSM ? 3.2 : 1.5,
-              }}
+              initial={
+                !entryAnimHasLoaded && {
+                  scale: isSM ? 3.2 : 1.5,
+                }
+              }
               transition={{
                 duration: 1,
                 ease: "easeInOut",
@@ -102,20 +109,26 @@ export default function Home() {
                 once: true,
               }}
               className="tracking-widest text-4xl md:text-5xl"
+              onAnimationComplete={handleEntryAnimationComplete}
             >
-              {
-                hasMounted ? 
-                <RandomReveal isPlaying duration={1.5} characters={"KAUGMAON"} />
-                :
+              {!entryAnimHasLoaded && hasMounted ? (
+                <RandomReveal
+                  isPlaying
+                  duration={1.5}
+                  characters={"KAUGMAON"}
+                />
+              ) : (
                 "KAUGMAON"
-              }
+              )}
             </motion.h1>
           </div>
           <motion.p
-            initial={{
-              y: 50,
-              opacity: 0,
-            }}
+            initial={
+              !entryAnimHasLoaded && {
+                y: 50,
+                opacity: 0,
+              }
+            }
             transition={{
               duration: 1,
               ease: "easeInOut",
@@ -133,7 +146,7 @@ export default function Home() {
             the augmented real<span className="text-primary">IT</span>y
           </motion.p>
           <motion.p
-            initial={{
+            initial={!entryAnimHasLoaded && {
               y: 50,
               opacity: 0,
             }}
@@ -155,7 +168,7 @@ export default function Home() {
             <span className="text-cyan-400">@ WVSU Cultural Center</span>
           </motion.p>
           <motion.div
-            initial={{
+            initial={!entryAnimHasLoaded && {
               y: 50,
               opacity: 0,
             }}
@@ -224,7 +237,7 @@ export default function Home() {
             offset={-50}
           >
             <motion.div
-              initial={{
+              initial={!entryAnimHasLoaded && {
                 opacity: 0,
               }}
               transition={{
@@ -250,7 +263,6 @@ export default function Home() {
       {/* Short About */}
       <div className="fluid-container py-10" id="event-landing-start">
         <motion.h2
-          initial={{}}
           transition={{
             duration: 1,
             ease: "easeInOut",
