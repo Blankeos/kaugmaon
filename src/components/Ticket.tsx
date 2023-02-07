@@ -277,7 +277,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                     }}
                   ></div>
                 ) : (
-                  <div className="w-20 h-20 rounded-full bg-white" />
+                  <div className="w-14 h-14 rounded-full bg-white animate-pulse" />
                 )}
                 {/* Name and Email */}
                 <div className="flex flex-col items-center gap-y-1">
