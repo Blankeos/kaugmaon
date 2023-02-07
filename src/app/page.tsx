@@ -312,10 +312,19 @@ export default function Home() {
         {guestSpeakers.map((speaker, i) => {
           return (
             <div key={i} className="flex flex-col my-10">
-              <div className="flex border border-primary space-x-5 rounded-xl p-5 ">
+              <div
+                className="flex border border-primary space-x-5 rounded-xl p-5 
+              flex-col gap-y-6
+              sm:flex-row sm:gap-y-0"
+              >
                 {/* Image */}
-                <div className="shrink-0">
-                  <Image src={speaker.img} width={200} height={200} alt="" />
+                <div className="relative shrink-0 h-56 w-full sm:h-[200px] sm:w-[200px]">
+                  <Image
+                    src={speaker.img}
+                    fill
+                    alt=""
+                    className="object-cover"
+                  />
                 </div>
                 {/* Body */}
                 <div>
