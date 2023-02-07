@@ -33,6 +33,7 @@ import Loader from "@/components/Loader";
 import { useMediaQuery } from "react-responsive";
 import useHasMounted from "@/hooks/useHasMounted";
 import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
+import GoogleLoginButton from "@/components/GoogleLoginButton";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -65,10 +66,12 @@ export default function Home() {
           <div className="flex flex-col items-center gap-y-5 text-center">
             <div className="relative">
               <motion.div
-                initial={!entryAnimHasLoaded && {
-                  y: -50,
-                  opacity: 0,
-                }}
+                initial={
+                  !entryAnimHasLoaded && {
+                    y: -50,
+                    opacity: 0,
+                  }
+                }
                 transition={{
                   duration: 1,
                   ease: "easeInOut",
@@ -146,10 +149,12 @@ export default function Home() {
             the augmented real<span className="text-primary">IT</span>y
           </motion.p>
           <motion.p
-            initial={!entryAnimHasLoaded && {
-              y: 50,
-              opacity: 0,
-            }}
+            initial={
+              !entryAnimHasLoaded && {
+                y: 50,
+                opacity: 0,
+              }
+            }
             transition={{
               duration: 1,
               ease: "easeInOut",
@@ -168,10 +173,12 @@ export default function Home() {
             <span className="text-cyan-400">@ WVSU Cultural Center</span>
           </motion.p>
           <motion.div
-            initial={!entryAnimHasLoaded && {
-              y: 50,
-              opacity: 0,
-            }}
+            initial={
+              !entryAnimHasLoaded && {
+                y: 50,
+                opacity: 0,
+              }
+            }
             transition={{
               duration: 1,
               ease: "easeInOut",
@@ -184,51 +191,9 @@ export default function Home() {
             viewport={{
               once: true,
             }}
-            className="flex flex-col items-center gap-y-2 mt-16"
+            className="mt-16"
           >
-            {status !== "loading" ? (
-              session ? (
-                <div className="text-center">
-                  <Link
-                    href="/ticket"
-                    className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition"
-                  >
-                    <TicketIcon className="w-5 h-5 grid place-items-center" />
-                    <span>View my Ticket</span>
-                  </Link>
-                  <button
-                    className="text-xs text-white/70 hover:text-red-400"
-                    onClick={() => signOut()}
-                  >
-                    Sign out
-                  </button>
-                </div>
-              ) : (
-                <div>
-                  <button
-                    onClick={() => {
-                      handleSignIn();
-                    }}
-                    className="group lds-ellipsis-button border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition h-12"
-                  >
-                    {loading ? (
-                      <div className="group-hover:text-dark text-white">
-                        <Loader />
-                      </div>
-                    ) : (
-                      <>
-                        <GoogleIcon className="w-5 h-5 grid place-items-center" />
-                        <span>Login with Google</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-              )
-            ) : (
-              <div className="text-white">
-                <Loader />
-              </div>
-            )}
+            <GoogleLoginButton />
           </motion.div>
 
           <ScrollLink
@@ -237,9 +202,11 @@ export default function Home() {
             offset={-50}
           >
             <motion.div
-              initial={!entryAnimHasLoaded && {
-                opacity: 0,
-              }}
+              initial={
+                !entryAnimHasLoaded && {
+                  opacity: 0,
+                }
+              }
               transition={{
                 duration: 1,
                 ease: "easeInOut",

@@ -34,7 +34,7 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
           <div className="text-center">
             <Link
               href="/ticket"
-              className={`rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center cursor-pointer transition ${
+              className={`rounded-full flex gap-x-5 items-center px-3 py-2 w-64 sm:w-[25rem] justify-center cursor-pointer transition ${
                 isOnLight
                   ? "bg-dark hover:bg-gray-800 hover:shadow-md"
                   : "hover:bg-white hover:text-dark border"

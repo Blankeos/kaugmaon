@@ -28,12 +28,6 @@ export const EntryAnimationContextProvider = ({
     setHasLoaded(true);
   }
 
-  useEffect(() => {
-    console.log({
-      hasLoaded: hasLoaded,
-    });
-  }, [hasLoaded]);
-
   const value: EntryAnimationContextValue = {
     hasLoaded: hasLoaded,
     handleEntryAnimationComplete: handleEntryAnimationComplete,
