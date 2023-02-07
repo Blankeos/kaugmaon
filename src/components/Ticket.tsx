@@ -103,7 +103,7 @@ const Ticket: React.FC<ITicketProps> = ({
                 <div className="flex justify-center items-center h-full mr-3">
                   {hasMounted && ticketId ? (
                     <div className="rotate-90 text-4xl">
-                      #
+                      {/* #
                       {isInteractive ? (
                         <RandomReveal
                           isPlaying
@@ -113,7 +113,7 @@ const Ticket: React.FC<ITicketProps> = ({
                         />
                       ) : (
                         ticketId
-                      )}
+                      )} */}
                     </div>
                   ) : (
                     <div className="rotate-90 h-[50px] m-auto w-full flex items-center justify-center overflow-hidden">
@@ -238,7 +238,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
           <div className="relative w-full h-full flex flex-col">
             {/* TICKET NUMBER */}
             <div className="bottom-14 absolute self-center">
-              <div className="flex justify-center items-center h-full mr-3">
+              <div className="flex justify-center items-center h-full">
                 {hasMounted && ticketId ? (
                   <div className="text-3xl">
                     #
@@ -254,8 +254,8 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                     )}
                   </div>
                 ) : (
-                  <div className="rotate-90 h-[50px] m-auto w-full flex items-center justify-center overflow-hidden">
-                    <div className="m-auto w-[150px] h-full">
+                  <div className="overflow-hidden">
+                    <div className="w-[150px] h-full">
                       <SkeletonLoader />
                     </div>
                   </div>
@@ -280,7 +280,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                   <div className="w-20 h-20 rounded-full bg-white" />
                 )}
                 {/* Name and Email */}
-                <div className="">
+                <div className="flex flex-col items-center gap-y-1">
                   <div className="mt-2">
                     {name ? (
                       <h3 className="text-xl font-bold tracking-tight text-center w-64">
@@ -295,7 +295,9 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                         )}
                       </h3>
                     ) : (
-                      <SkeletonLoader />
+                      <div className="w-64 overflow-hidden h-[25px]">
+                        <SkeletonLoader />
+                      </div>
                     )}
                   </div>
                   {email ? (
@@ -311,7 +313,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                       )}
                     </p>
                   ) : (
-                    <div className="w-[70px] overflow-hidden">
+                    <div className="h-4 w-[70px] overflow-hidden">
                       <SkeletonLoader />
                     </div>
                   )}
