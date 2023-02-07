@@ -103,7 +103,7 @@ const Ticket: React.FC<ITicketProps> = ({
                 <div className="flex justify-center items-center h-full mr-3">
                   {hasMounted && ticketId ? (
                     <div className="rotate-90 text-4xl">
-                      {/* #
+                      #
                       {isInteractive ? (
                         <RandomReveal
                           isPlaying
@@ -113,7 +113,7 @@ const Ticket: React.FC<ITicketProps> = ({
                         />
                       ) : (
                         ticketId
-                      )} */}
+                      )}
                     </div>
                   ) : (
                     <div className="rotate-90 h-[50px] m-auto w-full flex items-center justify-center overflow-hidden">
