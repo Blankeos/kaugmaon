@@ -41,6 +41,18 @@ const TicketPage = () => {
       return;
     }
 
+    // Solution to my Issue #2 Bug: https://github.com/bubkoo/html-to-image/issues/361
+    // Just execute the function 2 or 3 times.
+    await toPng(node, {
+      backgroundColor: "#181818",
+    });
+    await toPng(node, {
+      backgroundColor: "#181818",
+    });
+    await toPng(node, {
+      backgroundColor: "#181818",
+    });
+
     const dataUrl = await toPng(node, {
       backgroundColor: "#181818",
     });
