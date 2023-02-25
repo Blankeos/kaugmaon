@@ -131,7 +131,7 @@ const Ticket: React.FC<ITicketProps> = ({
                   {/* Profile Picture */}
                   {imgUrl ? (
                     <div
-                      className="w-20 h-20 rounded-full"
+                      className="w-20 h-20 rounded-full bg-gray-200"
                       style={{
                         background: `url(${imgUrl})`,
                         backgroundSize: "cover",
@@ -269,7 +269,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                 {/* Profile Picture */}
                 {imgUrl ? (
                   <div
-                    className="w-14 h-14 rounded-full bg-green-200"
+                    className="w-14 h-14 rounded-full bg-gray-200"
                     style={{
                       background: `url(${imgUrl})`,
                       backgroundSize: "cover",
