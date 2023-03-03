@@ -237,3 +237,75 @@ a {
     left: 200px;
   }
 }
+
+/* START: THIRTEEN */
+.logo,
+.thirteen {
+  position: relative;
+}
+
+.thirteen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  padding: 25px 10px;
+  transform: translateZ(0);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0px 2px 8px -1px #0000001a;
+}
+
+.thirteen::before,
+.thirteen::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+/* Conic Gradient Animation */
+.thirteen::before {
+  animation: 6s rotate linear infinite;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    #00000080,
+    #00000040,
+    #00000030,
+    #ddff002a,
+    #00000010,
+    #e3ff2a12,
+    #00000080
+  );
+  /* background: var(--tile-border); */
+}
+
+/* Inner Square */
+.thirteen::after {
+  inset: 0;
+  padding: 3px;
+  border-radius: var(--border-radius);
+  --tw-gradient-from: #374151;
+  --tw-gradient-to: rgb(55 65 81 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion) {
+  .thirteen::before {
+    animation: none;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* END: THIRTEEN */
