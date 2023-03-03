@@ -8,7 +8,6 @@ export default function ScrollUp() {
   const pathName = usePathname();
 
   useEffect(() => {
-    console.log("wah", pathName);
     window.document.scrollingElement?.scrollTo(0, 0);
   }, []);
 

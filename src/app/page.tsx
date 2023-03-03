@@ -32,6 +32,8 @@ import Loader from "@/components/Loader";
 // ReactResponsive
 import { useMediaQuery } from "react-responsive";
 import useHasMounted from "@/hooks/useHasMounted";
+import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
+import GoogleLoginButton from "@/components/GoogleLoginButton";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -50,7 +52,12 @@ export default function Home() {
   }
 
   // responsiveness:
-  const isSM = useMediaQuery({query: '(min-width: 768px)'});
+  const isSM = useMediaQuery({ query: "(min-width: 768px)" });
+
+  // Prevent animation using EntryAnimationContext:
+  const { handleEntryAnimationComplete, hasLoaded: entryAnimHasLoaded } =
+    useEntryAnimationContext();
+
   return (
     <>
       {/* Hero */}
@@ -59,10 +66,12 @@ export default function Home() {
           <div className="flex flex-col items-center gap-y-5 text-center">
             <div className="relative">
               <motion.div
-                initial={{
-                  y: -50,
-                  opacity: 0,
-                }}
+                initial={
+                  !entryAnimHasLoaded && {
+                    y: -50,
+                    opacity: 0,
+                  }
+                }
                 transition={{
                   duration: 1,
                   ease: "easeInOut",
@@ -75,7 +84,6 @@ export default function Home() {
                 viewport={{
                   once: true,
                 }}
-                className="thirteen"
               >
                 <Image
                   src="/MainLogo.png"
@@ -87,9 +95,11 @@ export default function Home() {
               </motion.div>
             </div>
             <motion.h1
-              initial={{
-                scale: isSM ? 3.2 : 1.5,
-              }}
+              initial={
+                !entryAnimHasLoaded && {
+                  scale: isSM ? 3.2 : 1.5,
+                }
+              }
               transition={{
                 duration: 1,
                 ease: "easeInOut",
@@ -102,20 +112,26 @@ export default function Home() {
                 once: true,
               }}
               className="tracking-widest text-4xl md:text-5xl"
+              onAnimationComplete={handleEntryAnimationComplete}
             >
-              {
-                hasMounted ? 
-                <RandomReveal isPlaying duration={1.5} characters={"KAUGMAON"} />
-                :
+              {!entryAnimHasLoaded && hasMounted ? (
+                <RandomReveal
+                  isPlaying
+                  duration={1.5}
+                  characters={"KAUGMAON"}
+                />
+              ) : (
                 "KAUGMAON"
-              }
+              )}
             </motion.h1>
           </div>
           <motion.p
-            initial={{
-              y: 50,
-              opacity: 0,
-            }}
+            initial={
+              !entryAnimHasLoaded && {
+                y: 50,
+                opacity: 0,
+              }
+            }
             transition={{
               duration: 1,
               ease: "easeInOut",
@@ -133,10 +149,12 @@ export default function Home() {
             the augmented real<span className="text-primary">IT</span>y
           </motion.p>
           <motion.p
-            initial={{
-              y: 50,
-              opacity: 0,
-            }}
+            initial={
+              !entryAnimHasLoaded && {
+                y: 50,
+                opacity: 0,
+              }
+            }
             transition={{
               duration: 1,
               ease: "easeInOut",
@@ -155,10 +173,12 @@ export default function Home() {
             <span className="text-cyan-400">@ WVSU Cultural Center</span>
           </motion.p>
           <motion.div
-            initial={{
-              y: 50,
-              opacity: 0,
-            }}
+            initial={
+              !entryAnimHasLoaded && {
+                y: 50,
+                opacity: 0,
+              }
+            }
             transition={{
               duration: 1,
               ease: "easeInOut",
@@ -171,51 +191,9 @@ export default function Home() {
             viewport={{
               once: true,
             }}
-            className="flex flex-col items-center gap-y-2 mt-16"
+            className="mt-16"
           >
-            {status !== "loading" ? (
-              session ? (
-                <div className="text-center">
-                  <Link
-                    href="/ticket"
-                    className="border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition"
-                  >
-                    <TicketIcon className="w-5 h-5 grid place-items-center" />
-                    <span>View my Ticket</span>
-                  </Link>
-                  <button
-                    className="text-xs text-white/70 hover:text-red-400"
-                    onClick={() => signOut()}
-                  >
-                    Sign out
-                  </button>
-                </div>
-              ) : (
-                <div>
-                  <button
-                    onClick={() => {
-                      handleSignIn();
-                    }}
-                    className="group lds-ellipsis-button border rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center hover:bg-white hover:text-dark cursor-pointer transition h-12"
-                  >
-                    {loading ? (
-                      <div className="group-hover:text-dark text-white">
-                        <Loader />
-                      </div>
-                    ) : (
-                      <>
-                        <GoogleIcon className="w-5 h-5 grid place-items-center" />
-                        <span>Login with Google</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-              )
-            ) : (
-              <div className="text-white">
-                <Loader />
-              </div>
-            )}
+            <GoogleLoginButton />
           </motion.div>
 
           <ScrollLink
@@ -224,9 +202,11 @@ export default function Home() {
             offset={-50}
           >
             <motion.div
-              initial={{
-                opacity: 0,
-              }}
+              initial={
+                !entryAnimHasLoaded && {
+                  opacity: 0,
+                }
+              }
               transition={{
                 duration: 1,
                 ease: "easeInOut",
@@ -250,7 +230,6 @@ export default function Home() {
       {/* Short About */}
       <div className="fluid-container py-10" id="event-landing-start">
         <motion.h2
-          initial={{}}
           transition={{
             duration: 1,
             ease: "easeInOut",
@@ -333,10 +312,19 @@ export default function Home() {
         {guestSpeakers.map((speaker, i) => {
           return (
             <div key={i} className="flex flex-col my-10">
-              <div className="flex border border-primary space-x-5 rounded-xl p-5 ">
+              <div
+                className="flex border border-primary space-x-5 rounded-xl p-5 
+              flex-col gap-y-6
+              sm:flex-row sm:gap-y-0"
+              >
                 {/* Image */}
-                <div className="shrink-0">
-                  <Image src={speaker.img} width={200} height={200} alt="" />
+                <div className="relative shrink-0 h-56 w-full sm:h-[200px] sm:w-[200px]">
+                  <Image
+                    src={speaker.img}
+                    fill
+                    alt=""
+                    className="object-cover"
+                  />
                 </div>
                 {/* Body */}
                 <div>

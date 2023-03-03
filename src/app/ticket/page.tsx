@@ -41,13 +41,25 @@ const TicketPage = () => {
       return;
     }
 
+    // Solution to my Issue #2 Bug: https://github.com/bubkoo/html-to-image/issues/361
+    // Just execute the function 2 or 3 times.
     await toPng(node, {
       backgroundColor: "#181818",
-    }).then(function (dataUrl) {
-      var img = new Image();
-      img.src = dataUrl;
-      download(dataUrl, "my-ticket.png");
     });
+    await toPng(node, {
+      backgroundColor: "#181818",
+    });
+    await toPng(node, {
+      backgroundColor: "#181818",
+    });
+
+    const dataUrl = await toPng(node, {
+      backgroundColor: "#181818",
+    });
+
+    var img = new Image();
+    img.src = dataUrl;
+    download(dataUrl, "my-ticket.png");
   }
 
   function handleDownloadClick() {
@@ -78,12 +90,12 @@ const TicketPage = () => {
       <div className="flex-1 flex flex-col items-center gap-y-0 sm:grid sm:place-items-center sm:pb-10">
         {
           <Ticket
-          imgUrl={session?.user?.image as string | undefined}
-          name={session?.user?.name as string | undefined}
-          email={session?.user?.email as string | undefined}
-          ticketId={
-            ticketData && stringifyTicketId(ticketData?.ticket.id - 1 || 0)
-          }
+            imgUrl={session?.user?.image as string | undefined}
+            name={session?.user?.name as string | undefined}
+            email={session?.user?.email as string | undefined}
+            ticketId={
+              ticketData && stringifyTicketId(ticketData?.ticket.id - 1 || 0)
+            }
           />
         }
         <div className="flex gap-x-5">
