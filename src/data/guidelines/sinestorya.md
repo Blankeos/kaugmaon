@@ -7,10 +7,10 @@ registerLink: "http://bit.ly/3HdpRPQ"
 
 ### ELIGIBILITY
 
-1.                     The contest is open to all film makers.
-2.                      Officers of Link.exe are NOT qualified to join the contest.
-3.                      All interested participants can pre-register through a provided Google Form or at the CICT Bldg. Rm. 103/ Link Office and fill out the Registration Form starting from March 14 to 31, 2023.
-4.                     Walk-in registrations are allowed.
+1. The contest is open to all film makers.
+2. Officers of Link.exe are NOT qualified to join the contest.
+3. All interested participants can pre-register through a provided Google Form or at the CICT Bldg. Rm. 103/ Link Office and fill out the Registration Form starting from March 14 to 31, 2023.
+4. Walk-in registrations are allowed.
 
 ### GUIDELINES
 
