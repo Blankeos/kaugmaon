@@ -49,11 +49,8 @@ export default function RootLayout({
                     ease: "easeInOut",
                     delay: 2,
                   }}
-                  whileInView={{
+                  animate={{
                     opacity: 1,
-                  }}
-                  viewport={{
-                    once: true,
                   }}
                 >
                   <ParticleBackground />
