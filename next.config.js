@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+  images: {
+    domains: ["jedadrian.vercel.app"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
