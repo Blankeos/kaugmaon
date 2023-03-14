@@ -24,9 +24,10 @@ import { RandomReveal } from "react-random-reveal";
 import { motion } from "framer-motion";
 
 import ScrollLink from "@/components/ClientScrollLink";
+import { animateScroll } from "react-scroll";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 
 // ReactResponsive
@@ -58,6 +59,22 @@ export default function Home() {
   // Prevent animation using EntryAnimationContext:
   const { handleEntryAnimationComplete, hasLoaded: entryAnimHasLoaded } =
     useEntryAnimationContext();
+
+  useEffect(() => {
+    console.log(window.location.hash);
+    if (window.location.hash === "#guest-speakers") {
+      setTimeout(() => {
+        const yOffset = -50;
+        const elem = document.getElementById("guest-speakers");
+
+        if (elem == null) return;
+        const y =
+          elem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ behavior: "smooth", top: y });
+      }, 100);
+    }
+  }, []);
 
   return (
     <>
