@@ -10,6 +10,7 @@ import {
 } from "react-icons/md";
 
 import { useMediaQuery } from "react-responsive";
+import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
 
 const Nav = () => {
   const pathname = usePathname();

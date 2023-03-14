@@ -356,7 +356,7 @@ export default function Home() {
         })}
       </div>
       {/* Call out */}
-      <div className="py-32 bg-primary bg-opacity-10 text-gray-300">
+      <div className="py-32 bg-primary bg-opacity-10 text-gray-300 mb-10">
         <div className="fluid-container text-center text-xl font-extralight">
           <p>
             <span className="font-bold">LINK.EXE</span> has a lot more in store
@@ -371,8 +371,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <ClientTypeAnimation /> */}
-      {/* {session?.user ? "No user" : "No user"} */}
     </>
   );
 }
