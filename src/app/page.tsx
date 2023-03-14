@@ -34,6 +34,7 @@ import { useMediaQuery } from "react-responsive";
 import useHasMounted from "@/hooks/useHasMounted";
 import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
 import GoogleLoginButton from "@/components/GoogleLoginButton";
+import eventData from "@/data/eventData";
 
 export default function Home() {
   const { data: session, status } = useSession();
@@ -169,7 +170,7 @@ export default function Home() {
             }}
             className="text-primary text-sm text-center mt-10"
           >
-            February 17, 2023{" "}
+            {eventData.date}{" "}
             <span className="text-cyan-400">@ WVSU Cultural Center</span>
           </motion.p>
           <motion.div

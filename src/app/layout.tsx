@@ -38,6 +38,7 @@ export default function RootLayout({
           <EntryAnimationContextProvider>
             <QueryClientProvider client={queryClient}>
               <Nav />
+              {/* Particle Background */}
               <div className="min-h-screen flex flex-col overflow-hidden">
                 <motion.div
                   initial={{
@@ -57,7 +58,11 @@ export default function RootLayout({
                 >
                   <ParticleBackground />
                 </motion.div>
+
+                {/* BODY */}
                 <main className="flex flex-grow flex-col">{children}</main>
+
+                {/* FOOTER */}
                 {!useRoutesAreShownOn(["/ticket"]) && (
                   <footer className="relative flex flex-col gap-y-8">
                     <div className="fluid-container">
@@ -124,7 +129,7 @@ export default function RootLayout({
                           </li>
                           <li>
                             <Link
-                              href="/guidelines/mini_film"
+                              href="/guidelines/cict_pro_motion"
                               className="hover:text-primary transition"
                             >
                               Contest Guidelines

@@ -36,7 +36,7 @@ function convertToRoman(num: number): string {
 
 const ProgramPage = () => {
   return (
-    <div className="h-screen mt-32">
+    <div className="mt-32">
       <ScrollUp />
       {programFlow.map((program, i) => {
         return (
@@ -60,6 +60,8 @@ const ProgramPage = () => {
           </div>
         );
       })}
+      {/* SPACER */}
+      <div className="mb-32" />
     </div>
   );
 };

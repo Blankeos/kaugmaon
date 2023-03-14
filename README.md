@@ -3,7 +3,7 @@
 
 ## 🔍 About
 
-An event landing site for **Link.EXE's RealITy @ February 17, 2023**.
+An event landing site for **Link.EXE's RealITy @ April 14, 2023**.
 
 Made by [Carlo Taleon](https://carlo.vercel.app) and [Asther Louie Cabardo](https://asther.vercel.app/)
 

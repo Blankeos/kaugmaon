@@ -17,7 +17,7 @@ const GuidelinesLayout = ({ children }: GuidelinesLayoutProps) => {
   return (
     <div>
       <div className="SPACER h-20" />
-      <div className="fluid-container px-7">
+      <div className="fluid-container px-7 sticky top-0">
         <div className="mt-10">
           <h2 className="text-lg font-semibold mb-5">Contests</h2>
           <div className="flex flex-wrap gap-2">

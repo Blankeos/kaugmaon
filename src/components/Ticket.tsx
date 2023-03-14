@@ -10,6 +10,7 @@ import useHasMounted from "@/hooks/useHasMounted";
 import capitalize from "@/lib/capitalize";
 import SkeletonLoader from "./SkeletonLoader";
 import { useMediaQuery } from "react-responsive";
+import eventData from "@/data/eventData";
 
 const GUEST_ORGANIZATIONS = [
   "gmail",
@@ -188,7 +189,7 @@ const Ticket: React.FC<ITicketProps> = ({
                     KAUGMAON
                   </div>
                   <div className="text-xs">
-                    <p>10:00 AM, February 17, 2023</p>
+                    <p>10:00 AM, {eventData.date}</p>
                     <p>
                       Hosted by <b>LINK.EXE</b>
                     </p>
@@ -326,7 +327,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
               <div className="flex px-8 items-center">
                 <div className="w-52">
                   <div className="tracking-widest font-azonix">KAUGMAON</div>
-                  <p className="text-xs">February 17, 2023</p>
+                  <p className="text-xs">{eventData.date}</p>
                 </div>
                 <div className="text-xs">
                   <p>10:00 AM</p>
