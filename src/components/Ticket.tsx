@@ -189,7 +189,7 @@ const Ticket: React.FC<ITicketProps> = ({
                     KAUGMAON
                   </div>
                   <div className="text-xs">
-                    <p>10:00 AM, {eventData.date}</p>
+                    <p>7:30 AM, {eventData.date}</p>
                     <p>
                       Hosted by <b>LINK.EXE</b>
                     </p>
@@ -330,7 +330,7 @@ const TicketPortrait: React.FC<ITicketProps> = ({
                   <p className="text-xs">{eventData.date}</p>
                 </div>
                 <div className="text-xs">
-                  <p>10:00 AM</p>
+                  <p>7:30 AM</p>
                   <p>
                     Hosted by <b>LINK.EXE</b>
                   </p>
