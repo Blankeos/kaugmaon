@@ -127,18 +127,19 @@ const Nav = () => {
               </li>
               <li>
                 {!inHome ? (
-                  <Link
-                    scroll={false}
-                    className="hover:text-primary cursor-pointer"
-                    href="/#guest-speakers"
-                    onClick={closeNavBar}
-                  >
-                    LGuest Speakers
-                  </Link>
+                  <></>
                 ) : (
+                  // <Link
+                  //   scroll={false}
+                  //   className="hover:text-primary cursor-pointer"
+                  //   href="/#guest-speakers"
+                  //   onClick={closeNavBar}
+                  // >
+                  //   LGuest Speakers
+                  // </Link>
                   <ScrollLink to="guest-speakers" offset={-50}>
                     <span className="hover:text-primary cursor-pointer">
-                      SL Guest Speakers
+                      Guest Speakers
                     </span>
                   </ScrollLink>
                 )}
