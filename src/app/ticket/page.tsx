@@ -9,7 +9,7 @@ import {
   MdOutlineImage as ImageIcon,
   MdOutlineShare as ShareIcon,
 } from "react-icons/md";
-import Link from "next/link";
+import Link from "@/components/ClientLink";
 import Ticket from "@/components/Ticket";
 // END: Icons
 

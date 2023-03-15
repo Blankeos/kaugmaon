@@ -26,7 +26,7 @@ import { motion } from "framer-motion";
 import ScrollLink from "@/components/ClientScrollLink";
 import { animateScroll } from "react-scroll";
 
-import Link from "next/link";
+import Link from "@/components/ClientLink";
 import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 

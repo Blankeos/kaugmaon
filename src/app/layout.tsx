@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 // CSS
 import "./globals.css";
@@ -18,6 +17,7 @@ import GoogleLoginButton from "@/components/GoogleLoginButton";
 import { usePathname } from "next/navigation";
 import Nav from "./Nav";
 import { EntryAnimationContextProvider } from "@/context/EntryAnimationContext";
+import Link from "@/components/ClientLink";
 
 // Create a client
 const queryClient = new QueryClient();

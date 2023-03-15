@@ -1,5 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import Link from "next/link";
+import Link from "@/components/ClientLink";
 import React, { useState } from "react";
 import { FcGoogle as GoogleIcon } from "react-icons/fc";
 import { MdReceipt as TicketIcon } from "react-icons/md";
