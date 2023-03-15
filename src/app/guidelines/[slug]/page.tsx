@@ -104,7 +104,7 @@ const GuidelinesSlugPage = async ({
 
   return (
     <div>
-      <div className="fluid-container px-7 py-16">
+      <div className="relative fluid-container px-7 py-16">
         <div className="flex flex-col gap-y-4">
           <div className="flex justify-start">
             <div className="rounded-full px-3 py-1 text-xs bg-primary text-dark mt-2 w-auto">
