@@ -11,7 +11,7 @@ type EntryAnimationContextValue = {
 };
 
 const EntryAnimationContext = createContext<EntryAnimationContextValue>({
-  hasLoaded: false,
+  hasLoaded: true,
   handleEntryAnimationComplete: () => {},
 });
 
