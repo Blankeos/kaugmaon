@@ -1,8 +1,8 @@
+"use client";
 /**
  * This component prevents the consecutive client-side routing to trigger the entrance animation in the '/' route.
  */
 
-import useHasMounted from "@/hooks/useHasMounted";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type EntryAnimationContextValue = {
