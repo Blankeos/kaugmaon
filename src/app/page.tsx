@@ -95,12 +95,9 @@ export default function Home() {
                   ease: "easeInOut",
                   delay: 2,
                 }}
-                whileInView={{
+                animate={{
                   y: 0,
                   opacity: 1,
-                }}
-                viewport={{
-                  once: true,
                 }}
               >
                 <Image

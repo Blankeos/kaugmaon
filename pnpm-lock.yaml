@@ -33,6 +33,7 @@ specifiers:
   react-dom: 18.2.0
   react-hot-toast: ^2.4.0
   react-icons: ^4.7.1
+  react-merge-refs: ^2.0.1
   react-parallax-tilt: ^1.7.93
   react-query: ^3.39.3
   react-random-reveal: ^2.0.0
@@ -69,6 +70,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   react-icons: 4.7.1_react@18.2.0
+  react-merge-refs: 2.0.1
   react-parallax-tilt: 1.7.95_biqbaboplfbrettd7655fr4n2y
   react-query: 3.39.3_biqbaboplfbrettd7655fr4n2y
   react-random-reveal: 2.0.0_react@18.2.0
@@ -2488,6 +2490,10 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  /react-merge-refs/2.0.1:
+    resolution: {integrity: sha512-pywF6oouJWuqL26xV3OruRSIqai31R9SdJX/I3gP2q8jLxUnA1IwXcLW8werUHLZOrp4N7YOeQNZrh/BKrHI4A==}
+    dev: false
 
   /react-parallax-tilt/1.7.95_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-xPaoIqrtE7Mtqz47dqZPhYihR49YkTlWMZcdstqR5AU0/3bGWh8jgXDyz5bP/22py3TH5AXt8sKqYT9LuWXnGg==}

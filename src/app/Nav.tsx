@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import ScrollLink from "@/components/ClientScrollLink";
@@ -11,10 +11,19 @@ import {
 
 import { useMediaQuery } from "react-responsive";
 import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
+import useOutsideAlerter from "@/hooks/useOutsideAlterter";
+
+import { mergeRefs } from "react-merge-refs";
 
 const Nav = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const sideBarRef = useRef<HTMLDivElement | null>(null);
+  const sideBarButtonRef = useRef<HTMLDivElement | null>(null);
+  useOutsideAlerter([sideBarRef, sideBarButtonRef], {
+    onClickOutside: closeNavBar,
+  });
 
   // Helper handlers
   function toggleNavBar() {
@@ -23,16 +32,13 @@ const Nav = () => {
   function closeNavBar() {
     setIsOpen(false);
   }
+  function openNavBar() {
+    setIsOpen(true);
+  }
 
   // Declares the bool for the logic in the entry animation, to prevent the transition delay
   // when animating using a button click later on.
-  const [entryAnimationHasEnded, setEntryAnimationHasEnded] =
-    useState<boolean>(false);
-  function handleEntryAnimationEnd() {
-    if (entryAnimationHasEnded) return;
-    setEntryAnimationHasEnded(true);
-  }
-
+  const { hasLoaded: entryAnimationHasLoaded } = useEntryAnimationContext();
   // Responsive
   const isSM = useMediaQuery({ query: "(min-width: 640px)" });
   const inHome = pathname === "/";
@@ -71,8 +77,10 @@ const Nav = () => {
 
           {/* Right Side */}
           <div className="">
+            {/* Open/Close Button */}
             <motion.button
-              onClick={toggleNavBar}
+              ref={sideBarButtonRef as unknown as React.Ref<HTMLButtonElement>}
+              onClick={isOpen ? closeNavBar : openNavBar}
               initial={inHome && { x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{
@@ -85,6 +93,7 @@ const Nav = () => {
               {isOpen ? <CloseIcon size="2rem" /> : <MenuIcon size="2rem" />}
             </motion.button>
             <motion.ul
+              ref={sideBarRef as unknown as React.Ref<HTMLUListElement>}
               className={`self-start flex text-sm gap-x-8 items-end
                     flex-col gap-y-10 bg-dark absolute top-0 right-0 min-h-screen pt-20 px-10 
                     
@@ -99,14 +108,13 @@ const Nav = () => {
               }
               transition={{
                 ease: "easeOut",
-                duration: entryAnimationHasEnded ? 0.4 : 1,
-                delay: entryAnimationHasEnded ? 0 : 2,
+                duration: entryAnimationHasLoaded ? 0.4 : 1,
+                delay: entryAnimationHasLoaded ? 0 : 2,
               }}
               animate={{
                 x: isSM ? 0 : isOpen ? 0 : 300,
                 opacity: 1,
               }}
-              onAnimationComplete={handleEntryAnimationEnd}
             >
               <li>
                 <Link
@@ -118,19 +126,19 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                {pathname && pathname !== "/" ? (
+                {!inHome ? (
                   <Link
                     scroll={false}
                     className="hover:text-primary cursor-pointer"
                     href="/#guest-speakers"
                     onClick={closeNavBar}
                   >
-                    Guest Speakers
+                    LGuest Speakers
                   </Link>
                 ) : (
                   <ScrollLink to="guest-speakers" offset={-50}>
                     <span className="hover:text-primary cursor-pointer">
-                      Guest Speakers
+                      SL Guest Speakers
                     </span>
                   </ScrollLink>
                 )}
