@@ -120,11 +120,8 @@ export default function Home() {
                 ease: "easeInOut",
                 delay: 2,
               }}
-              whileInView={{
+              animate={{
                 scale: 1,
-              }}
-              viewport={{
-                once: true,
               }}
               className="tracking-widest text-4xl md:text-5xl"
               onAnimationComplete={handleEntryAnimationComplete}
@@ -152,12 +149,9 @@ export default function Home() {
               ease: "easeInOut",
               delay: 2,
             }}
-            whileInView={{
+            animate={{
               y: 0,
               opacity: 1,
-            }}
-            viewport={{
-              once: true,
             }}
             className="text-xl text-center text-gray-300"
           >
@@ -175,12 +169,9 @@ export default function Home() {
               ease: "easeInOut",
               delay: 3,
             }}
-            whileInView={{
+            animate={{
               y: 0,
               opacity: 1,
-            }}
-            viewport={{
-              once: true,
             }}
             className="text-primary text-sm text-center mt-10"
           >
@@ -199,12 +190,9 @@ export default function Home() {
               ease: "easeInOut",
               delay: 3.5,
             }}
-            whileInView={{
+            animate={{
               y: 0,
               opacity: 1,
-            }}
-            viewport={{
-              once: true,
             }}
             className="mt-16"
           >
@@ -227,11 +215,8 @@ export default function Home() {
                 ease: "easeInOut",
                 delay: 4,
               }}
-              whileInView={{
+              animate={{
                 opacity: 1,
-              }}
-              viewport={{
-                once: true,
               }}
               className="animate-bounce flex gap-x-4 items-center "
             >
@@ -250,11 +235,8 @@ export default function Home() {
             ease: "easeInOut",
             delay: 2,
           }}
-          whileInView={{
+          animate={{
             scale: 1,
-          }}
-          viewport={{
-            once: true,
           }}
           className="text-xl font-bold mb-8"
         >
