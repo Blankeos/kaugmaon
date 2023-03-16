@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import NProgress from "nprogress";
 import React from "react";
 
 interface IClientLinkProps {
@@ -18,8 +20,24 @@ const ClientLink: React.FC<IClientLinkProps> = ({
   onClick = () => {},
   scroll,
 }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   return (
-    <Link href={href} className={className} onClick={onClick} scroll={scroll}>
+    <Link
+      href={href}
+      className={className}
+      onClick={(e) => {
+        onClick();
+        NProgress.start();
+        console.log("NProgress Start");
+
+        if (pathname === href) {
+          NProgress.done();
+        }
+      }}
+      scroll={scroll}
+    >
       {children}
     </Link>
   );

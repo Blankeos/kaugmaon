@@ -23,6 +23,11 @@ export const EntryAnimationContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
+  console.log(`hasLoaded re-rendered '${hasLoaded}'`);
+
+  useEffect(() => {
+    console.log(`hasLoaded has changed: '${hasLoaded}'`);
+  }, [hasLoaded]);
 
   function handleEntryAnimationComplete() {
     setHasLoaded(true);

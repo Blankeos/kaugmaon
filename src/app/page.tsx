@@ -61,7 +61,6 @@ export default function Home() {
     useEntryAnimationContext();
 
   useEffect(() => {
-    console.log(window.location.hash);
     if (window.location.hash === "#guest-speakers") {
       setTimeout(() => {
         const yOffset = -50;

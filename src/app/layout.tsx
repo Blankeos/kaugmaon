@@ -3,8 +3,9 @@
 import Image from "next/image";
 
 // CSS
-import "./globals.css";
-import "./index.css";
+import "../styles/globals.css";
+import "../styles/index.css";
+import "../styles/nprogress.css";
 
 import ClientToaster from "@/components/ClientToaster";
 
@@ -19,6 +20,23 @@ import Nav from "./Nav";
 import { EntryAnimationContextProvider } from "@/context/EntryAnimationContext";
 import Link from "@/components/ClientLink";
 
+import NProgress from "nprogress";
+import { Router } from "next/router";
+import { useNavigation } from "@/hooks/useRouteChanged";
+
+Router.events.on("routeChangeStart", () => {
+  NProgress.start();
+  console.log("route start");
+});
+Router.events.on("routeChangeComplete", () => {
+  NProgress.done();
+  console.log("route start");
+});
+Router.events.on("routeChangeError", () => {
+  NProgress.done();
+  console.log("route start");
+});
+
 // Create a client
 const queryClient = new QueryClient();
 
@@ -27,6 +45,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  useNavigation({
+    on: {
+      routeChanged({ pathname, searchParams }) {
+        console.log("NProgress Done");
+        NProgress.done();
+      },
+    },
+  });
   return (
     <html lang="en">
       {/*

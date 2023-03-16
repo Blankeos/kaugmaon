@@ -13,8 +13,6 @@ import { useMediaQuery } from "react-responsive";
 import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
 import useOutsideAlerter from "@/hooks/useOutsideAlterter";
 
-import { mergeRefs } from "react-merge-refs";
-
 const Nav = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -25,10 +23,6 @@ const Nav = () => {
     onClickOutside: closeNavBar,
   });
 
-  // Helper handlers
-  function toggleNavBar() {
-    setIsOpen(!isOpen);
-  }
   function closeNavBar() {
     setIsOpen(false);
   }
@@ -108,8 +102,8 @@ const Nav = () => {
               }
               transition={{
                 ease: "easeOut",
-                duration: entryAnimationHasLoaded ? 0.4 : 1,
-                delay: entryAnimationHasLoaded ? 0 : 2,
+                duration: entryAnimationHasLoaded ? 0.4 : inHome ? 1 : 0.4,
+                delay: entryAnimationHasLoaded ? 0 : inHome ? 2 : 0,
               }}
               animate={{
                 x: isSM ? 0 : isOpen ? 0 : 300,
@@ -125,25 +119,13 @@ const Nav = () => {
                   Programme
                 </Link>
               </li>
-              <li>
-                {!inHome ? (
-                  <></>
-                ) : (
-                  // <Link
-                  //   scroll={false}
-                  //   className="hover:text-primary cursor-pointer"
-                  //   href="/#guest-speakers"
-                  //   onClick={closeNavBar}
-                  // >
-                  //   LGuest Speakers
-                  // </Link>
-                  <ScrollLink to="guest-speakers" offset={-50}>
-                    <span className="hover:text-primary cursor-pointer">
-                      Guest Speakers
-                    </span>
-                  </ScrollLink>
-                )}
-              </li>
+              {inHome && (
+                <ScrollLink to="guest-speakers" offset={-50}>
+                  <span className="hover:text-primary cursor-pointer">
+                    Guest Speakers
+                  </span>
+                </ScrollLink>
+              )}
               <li>
                 <Link
                   href="/guidelines/cict_pro_motion"
