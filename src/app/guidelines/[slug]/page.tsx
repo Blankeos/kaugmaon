@@ -6,6 +6,7 @@ import { marked } from "marked";
 import Link from "next/link";
 import { MdArrowForward as ForwardIcon } from "react-icons/md";
 import useScrollToTop from "@/hooks/useScrollToTop";
+import ScrollUp from "@/components/ScrollUp";
 
 type MDMetaType = {
   title: string;
@@ -99,13 +100,13 @@ type GuidelinesSlugPageProps = {
 const GuidelinesSlugPage = async ({
   params: { slug },
 }: GuidelinesSlugPageProps) => {
-  useScrollToTop();
   const parsedMD = await getGuidelines(slug); // JSON
 
   const parsedMDContent = marked.parse(parsedMD?.content || "# Hello"); // String
 
   return (
     <div>
+      <ScrollUp />
       <div className="relative fluid-container px-7 py-16">
         <div className="flex flex-col gap-y-4">
           <div className="flex justify-start">
