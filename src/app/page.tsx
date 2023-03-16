@@ -108,33 +108,35 @@ export default function Home() {
                 />
               </motion.div>
             </div>
-            <motion.h1
-              initial={
-                !entryAnimHasLoaded && {
-                  scale: isSM ? 3.2 : 1.5,
+            {hasMounted && (
+              <motion.h1
+                initial={
+                  !entryAnimHasLoaded && {
+                    scale: isSM ? 3.2 : 1.15,
+                  }
                 }
-              }
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-                delay: 2,
-              }}
-              animate={{
-                scale: 1,
-              }}
-              className="tracking-widest text-4xl md:text-5xl"
-              onAnimationComplete={handleEntryAnimationComplete}
-            >
-              {!entryAnimHasLoaded && hasMounted ? (
-                <RandomReveal
-                  isPlaying
-                  duration={1.5}
-                  characters={"KAUGMAON"}
-                />
-              ) : (
-                "KAUGMAON"
-              )}
-            </motion.h1>
+                transition={{
+                  duration: 1,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+                animate={{
+                  scale: 1,
+                }}
+                className="tracking-widest text-4xl md:text-5xl"
+                onAnimationComplete={handleEntryAnimationComplete}
+              >
+                {!entryAnimHasLoaded && hasMounted ? (
+                  <RandomReveal
+                    isPlaying
+                    duration={1.5}
+                    characters={"KAUGMAON"}
+                  />
+                ) : (
+                  "KAUGMAON"
+                )}
+              </motion.h1>
+            )}
           </div>
           <motion.p
             initial={

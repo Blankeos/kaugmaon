@@ -33,7 +33,9 @@ export const useNavigation = ({ on }: { on?: NavigationEvents }) => {
 
   useEffect(() => {
     if (searchParams?.toString() !== prevSearchParams?.toString() || pathname !== prevPathname) {
-      window.document.scrollingElement?.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 30);
       setRoute({ pathname, searchParams });
       routeChanged?.({ pathname, searchParams });
     }
