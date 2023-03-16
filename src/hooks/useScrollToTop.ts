@@ -8,4 +8,6 @@ export default function useScrollToTop() {
             window.scrollTo({ behavior: "smooth", top: 0 });
           }, 50);
     }, [])
+
+    return;
 }
