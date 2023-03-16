@@ -21,21 +21,7 @@ import { EntryAnimationContextProvider } from "@/context/EntryAnimationContext";
 import Link from "@/components/ClientLink";
 
 import NProgress from "nprogress";
-import { Router } from "next/router";
 import { useNavigation } from "@/hooks/useRouteChanged";
-
-Router.events.on("routeChangeStart", () => {
-  NProgress.start();
-  console.log("route start");
-});
-Router.events.on("routeChangeComplete", () => {
-  NProgress.done();
-  console.log("route start");
-});
-Router.events.on("routeChangeError", () => {
-  NProgress.done();
-  console.log("route start");
-});
 
 // Create a client
 const queryClient = new QueryClient();

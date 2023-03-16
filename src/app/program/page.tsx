@@ -2,7 +2,6 @@
 
 import React from "react";
 import programFlow from "@/data/programFlow";
-import ScrollUp from "@/components/ScrollUp";
 
 type RomanMatrixType = [number, string][];
 
@@ -37,7 +36,6 @@ function convertToRoman(num: number): string {
 const ProgramPage = () => {
   return (
     <div className="mt-32">
-      <ScrollUp />
       {programFlow.map((program, i) => {
         return (
           <div
