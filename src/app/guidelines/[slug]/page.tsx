@@ -136,6 +136,7 @@ const GuidelinesSlugPage = async ({
         <div className="h-0.5 w-52 bg-white mt-10 my-5" />
         <div
           className="mt-8 prose-invert prose prose-headings:font-spacemono prose-headings:text-gray-200 prosa-a:text-primary prose-img:rounded-xl
+          prose-sm
           "
           dangerouslySetInnerHTML={{
             __html: parsedMDContent,

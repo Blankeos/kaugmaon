@@ -50,13 +50,14 @@ const ProgramPage = () => {
               </h1>
               {program.subheader.map((sub, i) => {
                 return (
-                  <p className="ml-14 hanging-indent" key={i}>
+                  <p className="ml-7 hanging-indent text-sm" key={i}>
+                    {"> "}
                     {sub}
                   </p>
                 );
               })}
             </div>
-            <p className="font-bold">{program.time}</p>
+            <p className="font-light text-xs shrink-0">{program.time}</p>
           </div>
         );
       })}

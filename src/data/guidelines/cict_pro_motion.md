@@ -1,6 +1,6 @@
 ---
 title: "🎬 CICT Pro.Motion"
-description: "Guidelines for CICT Promotional Video Contest"
+description: "Guidelines for CICT Pro.Motion (Promotional Video Contest)"
 date: "2023-03-15"
 registerLink: "http://bit.ly/3HdpRPQ"
 ---
