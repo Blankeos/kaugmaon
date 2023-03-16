@@ -1,6 +1,8 @@
+import useScrollToTop from "@/hooks/useScrollToTop";
 import React from "react";
 
 const PrivacyPolicyPage = () => {
+  useScrollToTop();
   return (
     <div>
       <div className="h-20" />

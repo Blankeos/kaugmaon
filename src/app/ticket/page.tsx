@@ -18,8 +18,10 @@ import { useQuery } from "react-query";
 import stringifyTicketId from "@/lib/stringifyTicketId";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 const TicketPage = () => {
+  useScrollToTop();
   // Auth Data
   const { data: session, status } = useSession();
 

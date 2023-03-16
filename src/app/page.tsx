@@ -36,8 +36,10 @@ import useHasMounted from "@/hooks/useHasMounted";
 import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
 import GoogleLoginButton from "@/components/GoogleLoginButton";
 import eventData from "@/data/eventData";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 export default function Home() {
+  useScrollToTop();
   const { data: session, status } = useSession();
   const [loading, setLoading] = useState<boolean>(false);
   const hasMounted = useHasMounted();

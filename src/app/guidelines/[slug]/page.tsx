@@ -5,6 +5,7 @@ import parseMD from "parse-md";
 import { marked } from "marked";
 import Link from "next/link";
 import { MdArrowForward as ForwardIcon } from "react-icons/md";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 type MDMetaType = {
   title: string;
@@ -98,6 +99,7 @@ type GuidelinesSlugPageProps = {
 const GuidelinesSlugPage = async ({
   params: { slug },
 }: GuidelinesSlugPageProps) => {
+  useScrollToTop();
   const parsedMD = await getGuidelines(slug); // JSON
 
   const parsedMDContent = marked.parse(parsedMD?.content || "# Hello"); // String

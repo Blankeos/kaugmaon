@@ -2,6 +2,7 @@
 
 import React from "react";
 import programFlow from "@/data/programFlow";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 type RomanMatrixType = [number, string][];
 
@@ -34,6 +35,7 @@ function convertToRoman(num: number): string {
 }
 
 const ProgramPage = () => {
+  useScrollToTop();
   return (
     <div className="mt-32">
       {programFlow.map((program, i) => {
