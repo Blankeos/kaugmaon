@@ -63,12 +63,12 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
               className={`group lds-ellipsis-button rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center cursor-pointer transition ${
                 isOnLight
                   ? "bg-dark hover:bg-gray-800 hover:shadow-md"
-                  : "hover:bg-white hover:text-dark border"
+                  : "hover:bg-white hover:text-dark border h-12"
               }`}
             >
               {loading ? (
                 <div className="group-hover:text-dark text-white">
-                  <Loader />
+                  {isOnLight ? <Loader /> : <Loader color="bg-black" />}
                 </div>
               ) : (
                 <>
