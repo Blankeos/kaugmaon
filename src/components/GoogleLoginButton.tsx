@@ -68,10 +68,7 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
             >
               {loading ? (
                 <div className="group-hover:text-dark text-white">
-                  <Loader
-                    isOnLight={isOnLight}
-                    color={isOnLight ? "#dbff00" : "#181818"}
-                  />
+                  <Loader isOnLight={isOnLight} color="#dbff00" />
                 </div>
               ) : (
                 <>
@@ -84,10 +81,7 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
         )
       ) : (
         <div className="text-white">
-          <Loader
-            isOnLight={isOnLight}
-            color={isOnLight ? "#181818" : "#dbff00"}
-          />
+          <Loader isOnLight={!isOnLight} color="#dbff00" />
         </div>
       )}
     </div>
