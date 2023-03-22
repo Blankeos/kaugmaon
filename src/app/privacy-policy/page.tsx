@@ -7,7 +7,7 @@ const PrivacyPolicyPage = () => {
   useScrollToTop();
   return (
     <div>
-      <div className="h-20" />
+      <div className="h-20 relative" />
 
       <div className="fluid-container px-7 py-10">
         <h1 className="text-2xl font-spacemono font-bold mb-2">
