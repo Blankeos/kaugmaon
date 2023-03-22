@@ -60,15 +60,18 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
               onClick={() => {
                 handleSignIn();
               }}
-              className={`group lds-ellipsis-button rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center cursor-pointer transition ${
+              className={`group lds-ellipsis-button rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center cursor-pointer transition h-12 ${
                 isOnLight
                   ? "bg-dark hover:bg-gray-800 hover:shadow-md"
-                  : "hover:bg-white hover:text-dark border h-12"
+                  : "hover:bg-white hover:text-dark border "
               }`}
             >
               {loading ? (
                 <div className="group-hover:text-dark text-white">
-                  {isOnLight ? <Loader /> : <Loader color="bg-black" />}
+                  <Loader
+                    isOnLight={isOnLight}
+                    color={isOnLight ? "#dbff00" : "#181818"}
+                  />
                 </div>
               ) : (
                 <>
@@ -81,7 +84,10 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
         )
       ) : (
         <div className="text-white">
-          <Loader color={isOnLight ? "#181818" : undefined} />
+          <Loader
+            isOnLight={isOnLight}
+            color={isOnLight ? "#181818" : "#dbff00"}
+          />
         </div>
       )}
     </div>

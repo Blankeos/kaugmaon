@@ -37,7 +37,7 @@ function convertToRoman(num: number): string {
 const ProgramPage = () => {
   useScrollToTop();
   return (
-    <div className="mt-32">
+    <div className="relative mt-32">
       {programFlow.map((program, i) => {
         return (
           <div
