@@ -187,8 +187,8 @@ export default function Home() {
             }}
             className="text-primary text-sm text-center mt-10"
           >
-            {eventData.date}{" "}
-            <span className="text-cyan-400">@ WVSU Cultural Center</span>
+            {eventData.time} | {eventData.date}{" "}
+            <span className="text-cyan-400">@ {eventData.location}</span>
           </motion.p>
           <motion.div
             initial={
@@ -327,33 +327,7 @@ export default function Home() {
         <h2 className="text-xl font-bold mb-8 font-azonix text-center tracking-widest">
           Guest Speakers
         </h2>
-        {guestSpeakers.map((speaker, i) => {
-          return (
-            <div key={i} className="flex flex-col my-10">
-              <div
-                className="flex border border-primary space-x-5 rounded-xl p-5 
-              flex-col gap-y-6
-              sm:flex-row sm:gap-y-0"
-              >
-                {/* Image */}
-                <div className="relative shrink-0 h-56 w-full sm:h-[200px] sm:w-[200px]">
-                  <Image
-                    src={speaker.img}
-                    fill
-                    alt=""
-                    className="object-cover"
-                  />
-                </div>
-                {/* Body */}
-                <div>
-                  <h3 className="text-2xl">{speaker.name}</h3>
-                  <p className="text-gray-400 mb-5">{speaker.username}</p>
-                  <p className="text-gray-300">{speaker.description}</p>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+        <p className="text-gray-200 text-center">To be announced</p>
       </div>
       {/* Call out */}
       <div className="py-32 bg-primary bg-opacity-10 text-gray-300 mb-10">
@@ -374,3 +348,32 @@ export default function Home() {
     </>
   );
 }
+
+// Put this under the <h2>Guest Speakers</h2>, once done.
+// {guestSpeakers.map((speaker, i) => {
+//   return (
+//     <div key={i} className="flex flex-col my-10">
+//       <div
+//         className="flex border border-primary space-x-5 rounded-xl p-5
+//       flex-col gap-y-6
+//       sm:flex-row sm:gap-y-0"
+//       >
+//         {/* Image */}
+//         <div className="relative shrink-0 h-56 w-full sm:h-[200px] sm:w-[200px]">
+//           <Image
+//             src={speaker.img}
+//             fill
+//             alt=""
+//             className="object-cover"
+//           />
+//         </div>
+//         {/* Body */}
+//         <div>
+//           <h3 className="text-2xl">{speaker.name}</h3>
+//           <p className="text-gray-400 mb-5">{speaker.username}</p>
+//           <p className="text-gray-300">{speaker.description}</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// })}

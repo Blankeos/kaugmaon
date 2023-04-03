@@ -2,7 +2,7 @@
 title: "👨‍💻 Clash of Coders"
 description: "Guidelines for Clash of Coders (Hackathon)"
 date: "2023-03-15"
-registerLink: "http://bit.ly/3HdpRPQ"
+registerLink: "http://bit.ly/3l77y7F"
 ---
 
 ### ELIGIBILITY

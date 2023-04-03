@@ -20,7 +20,6 @@ export default function Head() {
           show their talents in the field of emerging technologies, and we are
           bringing it back this year 2023!"
       />
-      <meta property="og:image" content="/kaugmaon_og.png" />
     </>
   );
 }

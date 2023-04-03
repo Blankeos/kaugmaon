@@ -2,7 +2,7 @@
 title: "🎥 SineStorya"
 description: "Guidelines for Sinestorya (Short Film Contest)"
 date: "2023-03-15"
-registerLink: "http://bit.ly/3HdpRPQ"
+registerLink: "https://bit.ly/4048Mzm"
 ---
 
 ### ELIGIBILITY
