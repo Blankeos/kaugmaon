@@ -26,6 +26,23 @@ import { useNavigation } from "@/hooks/useRouteChanged";
 // Create a client
 const queryClient = new QueryClient();
 
+export const metadata = {
+  openGraph: {
+    title: "Kaugmaon",
+    url: "https://kaugmaon.vercel.app",
+    images: [
+      {
+        url: "https://kaugmaon.vercel.app/kaugmaon_og.png",
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
+  robots: {
+    index: true,
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
