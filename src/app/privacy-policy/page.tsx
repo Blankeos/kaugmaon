@@ -1,8 +1,12 @@
+"use client";
+
+import useScrollToTop from "@/hooks/useScrollToTop";
 import React from "react";
 
 const PrivacyPolicyPage = () => {
+  useScrollToTop();
   return (
-    <div>
+    <div className="relative">
       <div className="h-20" />
 
       <div className="fluid-container px-7 py-10">

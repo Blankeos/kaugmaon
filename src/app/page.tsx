@@ -26,7 +26,7 @@ import { motion } from "framer-motion";
 import ScrollLink from "@/components/ClientScrollLink";
 import { animateScroll } from "react-scroll";
 
-import Link from "next/link";
+import Link from "@/components/ClientLink";
 import { useEffect, useState } from "react";
 import Loader from "@/components/Loader";
 
@@ -36,8 +36,10 @@ import useHasMounted from "@/hooks/useHasMounted";
 import { useEntryAnimationContext } from "@/context/EntryAnimationContext";
 import GoogleLoginButton from "@/components/GoogleLoginButton";
 import eventData from "@/data/eventData";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 export default function Home() {
+  useScrollToTop();
   const { data: session, status } = useSession();
   const [loading, setLoading] = useState<boolean>(false);
   const hasMounted = useHasMounted();
@@ -61,7 +63,6 @@ export default function Home() {
     useEntryAnimationContext();
 
   useEffect(() => {
-    console.log(window.location.hash);
     if (window.location.hash === "#guest-speakers") {
       setTimeout(() => {
         const yOffset = -50;
@@ -95,12 +96,9 @@ export default function Home() {
                   ease: "easeInOut",
                   delay: 2,
                 }}
-                whileInView={{
+                animate={{
                   y: 0,
                   opacity: 1,
-                }}
-                viewport={{
-                  once: true,
                 }}
               >
                 <Image
@@ -112,36 +110,35 @@ export default function Home() {
                 />
               </motion.div>
             </div>
-            <motion.h1
-              initial={
-                !entryAnimHasLoaded && {
-                  scale: isSM ? 3.2 : 1.5,
+            {hasMounted && (
+              <motion.h1
+                initial={
+                  !entryAnimHasLoaded && {
+                    scale: isSM ? 3.2 : 1.15,
+                  }
                 }
-              }
-              transition={{
-                duration: 1,
-                ease: "easeInOut",
-                delay: 2,
-              }}
-              whileInView={{
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              className="tracking-widest text-4xl md:text-5xl"
-              onAnimationComplete={handleEntryAnimationComplete}
-            >
-              {!entryAnimHasLoaded && hasMounted ? (
-                <RandomReveal
-                  isPlaying
-                  duration={1.5}
-                  characters={"KAUGMAON"}
-                />
-              ) : (
-                "KAUGMAON"
-              )}
-            </motion.h1>
+                transition={{
+                  duration: 1,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+                animate={{
+                  scale: 1,
+                }}
+                className="tracking-widest text-4xl md:text-5xl"
+                onAnimationComplete={handleEntryAnimationComplete}
+              >
+                {!entryAnimHasLoaded && hasMounted ? (
+                  <RandomReveal
+                    isPlaying
+                    duration={1.5}
+                    characters={"KAUGMAON"}
+                  />
+                ) : (
+                  "KAUGMAON"
+                )}
+              </motion.h1>
+            )}
           </div>
           <motion.p
             initial={
@@ -155,12 +152,9 @@ export default function Home() {
               ease: "easeInOut",
               delay: 2,
             }}
-            whileInView={{
+            animate={{
               y: 0,
               opacity: 1,
-            }}
-            viewport={{
-              once: true,
             }}
             className="text-xl text-center text-gray-300"
           >
@@ -178,12 +172,9 @@ export default function Home() {
               ease: "easeInOut",
               delay: 3,
             }}
-            whileInView={{
+            animate={{
               y: 0,
               opacity: 1,
-            }}
-            viewport={{
-              once: true,
             }}
             className="text-primary text-sm text-center mt-10"
           >
@@ -202,12 +193,9 @@ export default function Home() {
               ease: "easeInOut",
               delay: 3.5,
             }}
-            whileInView={{
+            animate={{
               y: 0,
               opacity: 1,
-            }}
-            viewport={{
-              once: true,
             }}
             className="mt-16"
           >
@@ -230,11 +218,8 @@ export default function Home() {
                 ease: "easeInOut",
                 delay: 4,
               }}
-              whileInView={{
+              animate={{
                 opacity: 1,
-              }}
-              viewport={{
-                once: true,
               }}
               className="animate-bounce flex gap-x-4 items-center "
             >
@@ -253,11 +238,8 @@ export default function Home() {
             ease: "easeInOut",
             delay: 2,
           }}
-          whileInView={{
+          animate={{
             scale: 1,
-          }}
-          viewport={{
-            once: true,
           }}
           className="text-xl font-bold mb-8"
         >

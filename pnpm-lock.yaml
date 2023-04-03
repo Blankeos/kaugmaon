@@ -8,6 +8,7 @@ specifiers:
   '@types/downloadjs': ^1.4.3
   '@types/marked': ^4.0.8
   '@types/node': 18.11.18
+  '@types/nprogress': ^0.2.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@types/react-scroll': ^1.8.6
@@ -24,6 +25,7 @@ specifiers:
   mysql2: ^3.1.0
   next: 13.1.5
   next-auth: ^4.18.10
+  nprogress: ^0.2.0
   openid-client: ^5.3.2
   parse-md: ^3.0.3
   postcss: ^8.4.21
@@ -63,6 +65,7 @@ dependencies:
   mysql2: 3.1.0
   next: 13.1.5_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.19.0_s6zlkfvllybxhmcq5pkr2zsuza
+  nprogress: 0.2.0
   openid-client: 5.3.2
   parse-md: 3.0.3
   react: 18.2.0
@@ -85,6 +88,7 @@ devDependencies:
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
   '@types/downloadjs': 1.4.3
   '@types/marked': 4.0.8
+  '@types/nprogress': 0.2.0
   '@types/react-scroll': 1.8.6
   autoprefixer: 10.4.13_postcss@8.4.21
   csstype: 3.1.1
@@ -434,6 +438,10 @@ packages:
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: false
+
+  /@types/nprogress/0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
+    dev: true
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -2130,6 +2138,10 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /oauth/0.9.15:
     resolution: {integrity: sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==}

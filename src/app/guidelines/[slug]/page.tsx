@@ -5,6 +5,8 @@ import parseMD from "parse-md";
 import { marked } from "marked";
 import Link from "next/link";
 import { MdArrowForward as ForwardIcon } from "react-icons/md";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import ScrollUp from "@/components/ScrollUp";
 
 type MDMetaType = {
   title: string;
@@ -104,7 +106,8 @@ const GuidelinesSlugPage = async ({
 
   return (
     <div>
-      <div className="fluid-container px-7 py-16">
+      <ScrollUp />
+      <div className="relative fluid-container px-7 py-16">
         <div className="flex flex-col gap-y-4">
           <div className="flex justify-start">
             <div className="rounded-full px-3 py-1 text-xs bg-primary text-dark mt-2 w-auto">
@@ -136,6 +139,7 @@ const GuidelinesSlugPage = async ({
         <div className="h-0.5 w-52 bg-white mt-10 my-5" />
         <div
           className="mt-8 prose-invert prose prose-headings:font-spacemono prose-headings:text-gray-200 prosa-a:text-primary prose-img:rounded-xl
+          prose-sm
           "
           dangerouslySetInnerHTML={{
             __html: parsedMDContent,

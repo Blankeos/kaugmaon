@@ -1,5 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/react";
-import Link from "next/link";
+import Link from "@/components/ClientLink";
 import React, { useState } from "react";
 import { FcGoogle as GoogleIcon } from "react-icons/fc";
 import { MdReceipt as TicketIcon } from "react-icons/md";
@@ -60,15 +60,15 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
               onClick={() => {
                 handleSignIn();
               }}
-              className={`group lds-ellipsis-button rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center cursor-pointer transition ${
+              className={`group lds-ellipsis-button rounded-full flex gap-x-5 items-center px-3 py-2 w-[25rem] justify-center cursor-pointer transition h-12 ${
                 isOnLight
                   ? "bg-dark hover:bg-gray-800 hover:shadow-md"
-                  : "hover:bg-white hover:text-dark border"
+                  : "hover:bg-white hover:text-dark border "
               }`}
             >
               {loading ? (
                 <div className="group-hover:text-dark text-white">
-                  <Loader />
+                  <Loader isOnLight={isOnLight} color="#dbff00" />
                 </div>
               ) : (
                 <>
@@ -81,7 +81,7 @@ const GoogleLoginButton: React.FC<GoogleLoginButtonProps> = ({
         )
       ) : (
         <div className="text-white">
-          <Loader color={isOnLight ? "#181818" : undefined} />
+          <Loader isOnLight={!isOnLight} color="#dbff00" />
         </div>
       )}
     </div>

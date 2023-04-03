@@ -2,7 +2,7 @@
 
 import React from "react";
 import programFlow from "@/data/programFlow";
-import ScrollUp from "@/components/ScrollUp";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 type RomanMatrixType = [number, string][];
 
@@ -35,9 +35,9 @@ function convertToRoman(num: number): string {
 }
 
 const ProgramPage = () => {
+  useScrollToTop();
   return (
-    <div className="mt-32">
-      <ScrollUp />
+    <div className="relative mt-32">
       {programFlow.map((program, i) => {
         return (
           <div
@@ -50,13 +50,14 @@ const ProgramPage = () => {
               </h1>
               {program.subheader.map((sub, i) => {
                 return (
-                  <p className="ml-14 hanging-indent" key={i}>
+                  <p className="ml-7 hanging-indent text-sm" key={i}>
+                    {"> "}
                     {sub}
                   </p>
                 );
               })}
             </div>
-            <p className="font-bold">{program.time}</p>
+            <p className="font-light text-xs shrink-0">{program.time}</p>
           </div>
         );
       })}

@@ -1,8 +1,8 @@
+"use client";
 /**
  * This component prevents the consecutive client-side routing to trigger the entrance animation in the '/' route.
  */
 
-import useHasMounted from "@/hooks/useHasMounted";
 import { createContext, useContext, useEffect, useState } from "react";
 
 type EntryAnimationContextValue = {
@@ -11,7 +11,7 @@ type EntryAnimationContextValue = {
 };
 
 const EntryAnimationContext = createContext<EntryAnimationContextValue>({
-  hasLoaded: false,
+  hasLoaded: true,
   handleEntryAnimationComplete: () => {},
 });
 
@@ -23,6 +23,11 @@ export const EntryAnimationContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
+  console.log(`hasLoaded re-rendered '${hasLoaded}'`);
+
+  useEffect(() => {
+    console.log(`hasLoaded has changed: '${hasLoaded}'`);
+  }, [hasLoaded]);
 
   function handleEntryAnimationComplete() {
     setHasLoaded(true);

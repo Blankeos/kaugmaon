@@ -1,10 +1,11 @@
 "use client";
+
 import Image from "next/image";
-import Link from "next/link";
 
 // CSS
-import "./globals.css";
-import "./index.css";
+import "../styles/globals.css";
+import "../styles/index.css";
+import "../styles/nprogress.css";
 
 import ClientToaster from "@/components/ClientToaster";
 
@@ -17,6 +18,10 @@ import GoogleLoginButton from "@/components/GoogleLoginButton";
 import { usePathname } from "next/navigation";
 import Nav from "./Nav";
 import { EntryAnimationContextProvider } from "@/context/EntryAnimationContext";
+import Link from "@/components/ClientLink";
+
+import NProgress from "nprogress";
+import { useNavigation } from "@/hooks/useRouteChanged";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -26,6 +31,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  useNavigation({
+    on: {
+      routeChanged({ pathname, searchParams }) {
+        console.log("NProgress Done");
+        NProgress.done();
+      },
+    },
+  });
   return (
     <html lang="en">
       {/*

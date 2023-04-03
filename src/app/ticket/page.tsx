@@ -9,7 +9,7 @@ import {
   MdOutlineImage as ImageIcon,
   MdOutlineShare as ShareIcon,
 } from "react-icons/md";
-import Link from "next/link";
+import Link from "@/components/ClientLink";
 import Ticket from "@/components/Ticket";
 // END: Icons
 
@@ -18,8 +18,10 @@ import { useQuery } from "react-query";
 import stringifyTicketId from "@/lib/stringifyTicketId";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 const TicketPage = () => {
+  useScrollToTop();
   // Auth Data
   const { data: session, status } = useSession();
 
