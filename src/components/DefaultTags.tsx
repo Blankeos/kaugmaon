@@ -8,6 +8,11 @@ export default function DefaultTags() {
         property="og:image"
         content="https://kaugmaon.vercel.app/kaugmaon_og.png"
       />
+      <meta
+        name="twitter:image"
+        content="https://kaugmaon.vercel.app/kaugmaon_og.png"
+      />
+      <meta name="twitter:card" content="summary_large_image" />
     </>
   );
 }

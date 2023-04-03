@@ -20,6 +20,12 @@ export default function Head() {
           show their talents in the field of emerging technologies, and we are
           bringing it back this year 2023!"
       />
+      <meta
+        name="twitter:description"
+        content="Brought to you by Link.exe, RealITy has been a venue for students to
+        show their talents in the field of emerging technologies, and we are
+        bringing it back this year 2023!"
+      />
     </>
   );
 }
