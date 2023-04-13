@@ -122,7 +122,7 @@ export default function RootLayout({
                             , and{" "}
                             <Link
                               className="underline text-primary hover:no-underline"
-                              href="https://jed.vercel.app"
+                              href="https://jedadrian.vercel.app"
                             >
                               Jed
                             </Link>
