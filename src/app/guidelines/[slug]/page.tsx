@@ -122,7 +122,7 @@ const GuidelinesSlugPage = async ({
             {parsedMD?.metadata.description}
           </p>
 
-          {parsedMD && (
+          {parsedMD && parsedMD.metadata.registerLink !== "" && (
             <div className="flex justify-start">
               <Link
                 href={parsedMD?.metadata.registerLink}
