@@ -39,7 +39,7 @@ const ProgramPage = () => {
   useScrollToTop();
   return (
     <div className="relative mt-32">
-      <div className="fluid-container">
+      <div className="max-w-xl mx-auto w-full px-8">
         <div className="flex items-center justify-center gap-x-5 mb-10">
           <Image alt="" src="/MainLogo.png" width={40} height={40} />
           <h1 className="font-base">
@@ -63,7 +63,6 @@ const ProgramPage = () => {
 
           <div className="h-5" />
           <p className="ml-5 font-semibold">- Intermission number -</p>
-
           <div className="h-5" />
 
           <h2 className="font-semibold">TECH TALK</h2>
@@ -73,6 +72,7 @@ const ProgramPage = () => {
 
           <div className="h-5" />
           <p className="ml-5 font-semibold">- Intermission number -</p>
+          <div className="h-5" />
 
           <p className="ml-5">• Talk 2: Augmented Reality</p>
           <p className="ml-16 font-semibold">Arvin John Gestoso</p>
