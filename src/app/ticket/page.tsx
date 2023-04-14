@@ -89,7 +89,7 @@ const TicketPage = () => {
     <>
       {/* <ScrollUp /> */}
       <div className="SPACER h-20" />
-      <div className="flex-1 flex flex-col items-center gap-y-0 sm:grid sm:place-items-center sm:pb-10">
+      <div className="relative flex-1 flex flex-col items-center gap-y-0 sm:grid sm:place-items-center sm:pb-10">
         {
           <Ticket
             imgUrl={session?.user?.image as string | undefined}
@@ -100,7 +100,7 @@ const TicketPage = () => {
             }
           />
         }
-        <div className="flex gap-x-5">
+        <div className="flex flex-col gap-x-5">
           <button
             onClick={handleDownloadClick}
             className="border px-6 py-3 rounded-xl hover:bg-white hover:text-dark flex gap-x-2 items-center"
@@ -108,6 +108,10 @@ const TicketPage = () => {
             <ImageIcon size="1.2rem" />
             <span>Download</span>
           </button>
+        </div>
+        <div className="text-xs opacity-50 mt-5 text-center max-w-sm">
+          This ticket is for vanity only. You can still enter the event without
+          one.
         </div>
         <div className="h-10" />
       </div>

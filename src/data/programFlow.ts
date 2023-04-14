@@ -1,13 +1,20 @@
+type SubheaderType =
+  | {
+      content: string;
+      child: string;
+    }
+  | string;
+
 type ProgramFlowRow = {
   header: string;
-  subheader: string[];
+  subheader: SubheaderType[];
   time: string;
 };
 
 const programFlow: ProgramFlowRow[] = [
   {
     header: "Registration",
-    subheader: ["a. National Anthem", "b. Prayer", "c. National Anthem"],
+    subheader: [],
     time: "7:30AM - 8:30AM",
   },
   {
